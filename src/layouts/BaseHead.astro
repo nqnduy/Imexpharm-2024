@@ -11,7 +11,6 @@ const Favicon = await getImage({src: favicon, format: 'webp', width: favicon.wid
 ---
 <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href={new URL(Favicon.src, Astro.url)} />
     <meta name="generator" content={Astro.generator} />
@@ -22,7 +21,7 @@ const Favicon = await getImage({src: favicon, format: 'webp', width: favicon.wid
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
-    <!-- <meta name="description" content={description} /> -->
+    <meta name="description" content={description} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
