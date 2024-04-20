@@ -4,14 +4,14 @@ import Header from '@components/global/Header.astro'
 import Footer from '@components/global/Footer.astro'
 import BaseHead from '@/layouts/BaseHead.astro';
 import OpenGraph from '@assets/open-graph.jpg';
-
+import { menu } from "@/i18n/default";
 import { getLangFromUrl } from '@i18n/utils';
+const { current_page } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+
 interface Props {
 	title: string;
 }
-import { menu } from "@/i18n/default";
-const { current_page } = Astro.props;
-const lang = getLangFromUrl(Astro.url);
 ---
 <!doctype html>
 <html lang={lang}>

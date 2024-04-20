@@ -1,14 +1,44 @@
 ---
 import { Image } from 'astro:assets';
+import Title from '@assets/ui/result/title.svg';
 import ContentDetailTitle from '@assets/ui/result/detail-1-txt.svg';
-// import ContentDetailTitle from '@assets/ui/result/detail-1-txt.svg';
+import ContentDetailBG from '@assets/ui/result/detail-1-bg.jpg';
+import Detail2 from '@assets/ui/result/detail-2.svg';
+import Detail3 from '@assets/ui/result/detail-3.svg';
+import Detail41 from '@assets/ui/result/detail-4.1.png';
+import Detail42 from '@assets/ui/result/detail-4.2.png';
+import Detail5 from '@assets/ui/result/detail-5.jpg';
+import Detail6 from '@assets/ui/result/detail-6.svg';
+import Detail7 from '@assets/ui/result/detail-7.svg';
+import Detail8 from '@assets/ui/result/detail-8.svg';
+import Detail91 from '@assets/ui/result/detail-9.1.png';
+import Detail92 from '@assets/ui/result/detail-9.2.png';
+import Detail93 from '@assets/ui/result/detail-9.3.png';
 
 ---
 <section class="content">
     <div class="container">
         <div class="content-wrap">
-            <Image src={ContentDetailTitle} alt="text" class="img is-desk" />
-            <!-- <Image src={ContentDetailTitle} alt="text" class="img is-desk" /> -->
+            <Image src={Title} alt="text" class="img is-desk" />
+            <div class="grid grid-1">
+                <Image src={ContentDetailBG} alt="text" class="img is-desk" />
+                <Image src={ContentDetailTitle} alt="text" class="img is-desk" />
+            </div>
+            <Image src={Detail2} alt="text" class="img is-desk" />
+            <Image src={Detail3} alt="text" class="img is-desk" />
+            <div class="grid grid-1">
+                <Image src={Detail41} alt="text" class="img is-desk" />
+                <Image src={Detail42} alt="text" class="img is-desk" />
+            </div>
+            <Image src={Detail5} alt="text" class="img is-desk" />
+            <Image src={Detail6} alt="text" class="img is-desk" />
+            <Image src={Detail7} alt="text" class="img is-desk" />
+            <Image src={Detail8} alt="text" class="img is-desk" />
+            <div class="grid content-col-3">
+                <Image src={Detail91} alt="text" class="img is-desk" />
+                <Image src={Detail92} alt="text" class="img is-desk" />
+                <Image src={Detail93} alt="text" class="img is-desk" />
+            </div>
         </div>
     </div>
 </section>
@@ -16,11 +46,16 @@ import ContentDetailTitle from '@assets/ui/result/detail-1-txt.svg';
 <style lang="scss">
     @use "@styles/colors" as *;
     .content {
+        padding: 8.8rem 0;
         background-color: $cl-white;
         &-wrap {
             display: flex;
             flex-direction: column;
             gap: 4rem 0;
+        }
+        &-col-3 {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0 1.6rem;
         }
     }
 </style>
