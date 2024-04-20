@@ -27,7 +27,7 @@ const OpenGraph = await getImage({src: image, format: 'webp', width: image.width
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <!-- <meta property="og:description" content={description} /> -->
-    <meta property="og:image" content={OpenGraph.src} />
+    <meta property="og:image" content={new URL(OpenGraph.src, Astro.url)} />
     <script>
         window.scrollTo(0,0)
     </script>
