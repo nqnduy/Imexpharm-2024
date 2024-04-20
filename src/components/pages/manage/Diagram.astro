@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import DiagramTitle from '@assets/ui/manage/dia-title.svg'
+import DiagramIntro from '@assets/ui/manage/dia-intro.svg'
+import DiagramChart from '@assets/ui/manage/dia-chart.png'
+
+---
+<section class="diagram">
+    <div class="container negative">
+        <div class="diagram-wrap">
+            <Image src={DiagramTitle} alt="text" class="img is-desk" />
+            <Image src={DiagramIntro} alt="text" class="img is-desk" />
+            <Image src={DiagramChart} alt="chart" class="img is-desk" />
+        </div>
+    </div>
+</section>
+<style lang="scss">
+    @use '@styles/colors' as *;
+    .diagram {
+        background: $cl-white;
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.8),rgba(180, 237, 255, 0.48), rgba(36, 64, 142, 0.48) 110%);
+        }
+        &-wrap {
+            display: grid;
+            grid-template-columns: 1fr;
+            > * {
+                grid-area: 1/1/2/2;
+            }
+        }
+    }
+</style>

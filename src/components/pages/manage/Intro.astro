@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import Intro1 from '@assets/ui/manage/intro-1.svg'
+import Intro2 from '@assets/ui/manage/intro-2.svg'
+import IntroBG from '@assets/ui/manage/intro-bg.jpg'
+
+---
+<section class="intro">
+    <div class="container">
+        <div class="intro-bg negative">
+            <Image src={IntroBG} alt="text" class="img is-desk" />
+        </div>
+        <div class="intro-wrap">
+            <Image src={Intro1} alt="text" class="img is-desk" />
+            <Image src={Intro2} alt="text" class="img is-desk" />
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    .intro {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            > * {
+                grid-area: 1/1/2/2;
+            }
+        }
+        &-wrap {
+            padding-top: 8.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem 0;
+        }
+    }
+</style>

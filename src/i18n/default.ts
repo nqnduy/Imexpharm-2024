@@ -33,7 +33,7 @@ export const menu = {
         { name: 'Vision', link: './tam-nhin' },
         { name: 'Story', link: './cau-chuyen' },
         { name: 'Result', link: './ket-qua' },
-        { name: 'Administration', link: './quan-tri' },
+        { name: 'Manage', link: './quan-tri' },
         { name: 'Renew', link: './doi-moi' },
         { name: 'Report', link: './bao-cao' },
         { name: 'Contact', link: './lien-he' },

@@ -1,0 +1,89 @@
+---
+import { Image } from 'astro:assets';
+import Intro1 from '@assets/ui/manage/intro-1.svg'
+import PersonnelBG1 from '@assets/ui/manage/personnel-bg-1.jpg';
+import PersonnelBG2 from '@assets/ui/manage/personnel-bg-2.jpg';
+import PeopleTitle1 from '@assets/ui/manage/people-title1.svg';
+import PeopleTitle2 from '@assets/ui/manage/people-title2.svg';
+import People1 from '@assets/ui/manage/people-1.png';
+import People2 from '@assets/ui/manage/people-2.png';
+import People3 from '@assets/ui/manage/people-3.png';
+import People4 from '@assets/ui/manage/people-4.png';
+import People5 from '@assets/ui/manage/people-5.png';
+import People6 from '@assets/ui/manage/people-6.png';
+import People7 from '@assets/ui/manage/people-7.png';
+import People8 from '@assets/ui/manage/people-8.png';
+import People9 from '@assets/ui/manage/people-9.png';
+import People10 from '@assets/ui/manage/people-10.png';
+import People11 from '@assets/ui/manage/people-11.png';
+import People12 from '@assets/ui/manage/people-12.png';
+import People13 from '@assets/ui/manage/people-13.png';
+import People14 from '@assets/ui/manage/people-14.png';
+import People151 from '@assets/ui/manage/people-15.1.png';
+import People152 from '@assets/ui/manage/people-15.2.png';
+
+---
+<section class="personnel">
+    <div class="container">
+        <div class="personnel_bg negative">
+            <Image src={PersonnelBG1} alt="text" class="img is-desk" />
+        </div>
+        <div class="personnel__list">
+            <Image src={PeopleTitle1} alt="text" class="img is-desk" />
+            <Image src={People1} alt="text" class="img is-desk" />
+            <Image src={People2} alt="text" class="img is-desk" />
+            <Image src={People3} alt="text" class="img is-desk" />
+            <Image src={People4} alt="text" class="img is-desk" />
+            <Image src={People5} alt="text" class="img is-desk" />
+            <Image src={People6} alt="text" class="img is-desk" />
+            <Image src={People7} alt="text" class="img is-desk" />
+            <Image src={People8} alt="text" class="img is-desk" />
+        </div>
+    </div>
+    <div class="container">
+        <div class="personnel_bg negative">
+            <Image src={PersonnelBG2} alt="text" class="img is-desk" />
+        </div>
+        <div class="personnel__list">
+            <Image src={PeopleTitle2} alt="text" class="img is-desk" />
+            <Image src={People9} alt="text" class="img is-desk" />
+            <Image src={People10} alt="text" class="img is-desk" />
+            <Image src={People11} alt="text" class="img is-desk" />
+            <Image src={People12} alt="text" class="img is-desk" />
+            <Image src={People13} alt="text" class="img is-desk" />
+            <Image src={People14} alt="text" class="img is-desk" />
+            <div class="grid grid-1">
+                <Image src={People151} alt="text" class="img is-desk" />
+                <Image src={People152} alt="text" class="img is-desk" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    .personnel {
+        background-color: #00001F;
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            > * {
+                grid-area: 1/1/2/2;
+            }
+            > *:last-child {
+                margin-top: -.1rem;
+            }
+        }
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3.2rem 2.4rem;
+            padding: 8.8rem 0;
+            > *:first-child {
+                grid-column: span 3;
+            }
+            .grid-1 {
+                grid-column: span 3;
+            }
+        }
+    }
+</style>
