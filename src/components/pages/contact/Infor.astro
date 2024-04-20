@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import InforBG from '@assets/ui/contact/infor-bg.jpg'
+import InforContent from '@assets/ui/contact/infor-content.svg'
+---
+<section class="infor">
+    <div class="container">
+        <div class="infor-bg negative">
+            <Image src={InforBG} alt="text" class="img is-desk" />
+        </div>
+        <div class="infor-wrap">
+            <Image src={InforContent} alt="text" class="img is-desk" />
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    .infor {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            > * {
+                grid-area: 1/1/2/2;
+            }
+        }
+        &-wrap {
+            padding-top: 8.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem 0;
+        }
+    }
+</style>
