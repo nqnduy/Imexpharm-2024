@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import OveralTitle from '@assets/ui/renew/overal-title.svg'
+import OveralIc from '@assets/ui/renew/overal-ic.svg';
+import Overal1 from '@assets/ui/renew/overal-1.jpg'
+import Overal2 from '@assets/ui/renew/overal-2.jpg'
+import Overal3 from '@assets/ui/renew/overal-3.jpg'
+import Overal4 from '@assets/ui/renew/overal-4.jpg'
+import Overal5 from '@assets/ui/renew/overal-5.jpg'
+import Overal6 from '@assets/ui/renew/overal-6.jpg'
+---
+<section class="overal">
+    <div class="container">
+        <div class="overal-wrap">
+            <Image src={OveralTitle} alt="text" class="img is-desk" />
+            <Image src={OveralIc} alt="text" class="img is-desk" />
+            <div class="grid overal__list">
+                <Image src={Overal1} alt="text" class="img is-desk" />
+                <Image src={Overal2} alt="text" class="img is-desk" />
+                <Image src={Overal3} alt="text" class="img is-desk" />
+                <Image src={Overal4} alt="text" class="img is-desk" />
+                <Image src={Overal5} alt="text" class="img is-desk" />
+                <Image src={Overal6} alt="text" class="img is-desk" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @use '@styles/colors' as *;
+    .overal {
+        padding-block: 8.8rem;
+        background-color: $cl-dark-blue;
+        &-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem 0;
+        }
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            margin-top: -6rem;
+            z-index: -1;
+        }
+    }
+</style>

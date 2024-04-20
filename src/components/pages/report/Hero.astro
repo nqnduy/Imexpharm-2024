@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import HeroBackground from '@assets/ui/report/hero-bg.jpg'
+import HeroContent from '@assets/ui/report/hero-content.svg'
+---
+<section class="hero">
+    <div class="container negative">
+        <div class="hero-wrap">
+            <Image src={HeroBackground} loading="eager" alt="hero bg" class="img is-desk" />
+            <Image src={HeroContent} alt="hero content" class="img is-desk" />
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    .hero {
+        &-wrap {
+            display: grid;
+            grid-template-columns: 1fr;
+            > * {
+                grid-area: 1/1/2/2;
+            }
+        }
+    }
+</style>

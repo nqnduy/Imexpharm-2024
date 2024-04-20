@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+import AchieveTitle from '@assets/ui/renew/achieve-title.svg'
+import AchieveBG from '@assets/ui/renew/achieve-bg.jpg'
+import Achieve1 from '@assets/ui/renew/achieve-1.png'
+import Achieve2 from '@assets/ui/renew/achieve-2.png'
+import Achieve3 from '@assets/ui/renew/achieve-3.png'
+import Achieve4 from '@assets/ui/renew/achieve-4.png'
+import Achieve5 from '@assets/ui/renew/achieve-5.png'
+import Achieve6 from '@assets/ui/renew/achieve-6.png'
+import Achieve7 from '@assets/ui/renew/achieve-7.png'
+import Achieve8 from '@assets/ui/renew/achieve-8.png'
+---
+<section class="achieve">
+    <div class="container">
+        <div class="achieve-bg negative">
+            <Image src={AchieveBG} alt="text" class="img is-desk" />
+        </div>
+        <div class="achieve-wrap">
+            <Image src={AchieveTitle} alt="text" class="img is-desk" />
+            <div class="achieve__list">
+                <div class="grid grid-1">
+                    <Image src={Achieve1} alt="text" class="img is-desk" />
+                    <Image src={Achieve2} alt="text" class="img is-desk" />
+                </div>
+                <div class="grid grid-1">
+                    <Image src={Achieve3} alt="text" class="img is-desk" />
+                    <Image src={Achieve4} alt="text" class="img is-desk" />
+                </div>
+                <div class="grid grid-1">
+                    <Image src={Achieve5} alt="text" class="img is-desk" />
+                    <Image src={Achieve6} alt="text" class="img is-desk" />
+                </div>
+                <div class="grid grid-1">
+                    <Image src={Achieve7} alt="text" class="img is-desk" />
+                    <Image src={Achieve8} alt="text" class="img is-desk" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @use '@styles/colors' as *;
+    .achieve {
+        background-color: $cl-dark-blue;
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            > * {
+                grid-area: 1/1/2/2;
+            }
+        }
+        &-wrap {
+            padding: 8.8rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem 0;
+        }
+    }
+</style>
