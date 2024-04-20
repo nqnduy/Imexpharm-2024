@@ -1,0 +1,42 @@
+---
+const { current_page } = Astro.props;
+import Link from '@components/global/Link.astro';
+import { menu } from '@/i18n/default';
+import { getLangFromUrl } from '@/i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+---
+<footer class="footer">
+    <div class="footer__pagination">
+        <div class="container">
+            {current_page - 1 >= 0 ? (<Link link={menu[lang][current_page - 1].link} text={menu[lang][current_page - 1].name} revert/>) : (<div class="footer__pagination-hidden"></div>)}
+            {current_page + 1 <= menu[lang].length ? (<Link link={menu[lang][current_page + 1].link} text={menu[lang][current_page + 1].name}/>) : (<div class="footer__pagination-hidden"></div>)}
+        </div>
+    </div>
+    <div class="txt txt-14 footer__copyright">© 2024 All Rights Reserved | IMEXPHARM</div>
+</footer>
+<style lang="scss">
+    @use '@styles/colors' as *;
+    .footer {
+        background-color: $cl-dark-blue;
+        &__pagination {
+            background-color: #24408E;
+            padding: 2.4rem 0;
+            .container {
+                display: flex;
+                justify-content: space-between;
+            }
+            &-hidden {
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
+        &__copyright {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2.4rem 0;
+            color: #fff;
+        }
+    }
+</style>

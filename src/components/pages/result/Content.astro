@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+import ContentDetailTitle from '@assets/ui/result/detail-1-txt.svg';
+// import ContentDetailTitle from '@assets/ui/result/detail-1-txt.svg';
+
+---
+<section class="content">
+    <div class="container">
+        <div class="content-wrap">
+            <Image src={ContentDetailTitle} alt="text" class="img is-desk" />
+            <!-- <Image src={ContentDetailTitle} alt="text" class="img is-desk" /> -->
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @use "@styles/colors" as *;
+    .content {
+        background-color: $cl-white;
+        &-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem 0;
+        }
+    }
+</style>

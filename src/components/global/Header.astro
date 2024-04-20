@@ -1,0 +1,135 @@
+---
+import cn from 'clsx';
+import { useTranslatedPath, getLangFromUrl } from '@i18n/utils';
+import { menu } from '@/i18n/default';
+import { Image } from 'astro:assets';
+import Logo from "@assets/icons/logo.svg";
+import VNFlag from "@assets/icons/vn-flag.svg";
+import Dropdown from "@assets/icons/dropdown.svg?raw";
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+const pathname = new URL(Astro.request.url).pathname;
+---
+<header class="header">
+    <div class="container">
+        <a href={translatePath('/')}>
+            <Image src={Logo} alt="Imexpharm logo" class="img-h header__logo" />
+        </a>
+        <div class="header__right">
+            <ul class="header__menu">
+                {menu[lang].map((item) => (
+                    <li>
+                        <a
+                            class={cn("heading txt-link header__menu-link", { "active": pathname === translatePath(item.link) })}
+                            href={translatePath(item.link)}>
+                            <span class="txt txt-14 txt-reg header__menu-link-txt">{item.name}</span>
+                            <span class="txt txt-14 txt-semi header__menu-link-txt">{item.name}</span>
+                        </a>
+                    </li>
+                ))}
+            </ul>
+            <div class="header__langs">
+                <div class="header__lang">
+                    <Image src={VNFlag} alt='vietnam flag' class="img header__lang-flag"/>
+                    <span class="heading txt txt-14">VN</span>
+                </div>
+                <div class="ic ic-24 header__langs-arrow">
+                    <Fragment set:html={Dropdown} />
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<style lang="scss">
+    @use '@styles/colors' as *;
+    .header {
+        position: fixed;
+        top: 0;
+        padding-top: 3.2rem;
+        color: #fff;
+        z-index: 100;
+        width: 100%;
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__logo {
+            height: 12rem;
+        }
+        &__menu {
+            display: flex;
+            align-items: center;
+            gap: 0 2.8rem;
+            text-transform: capitalize;
+            &-link {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0 .4rem;
+                &-txt {
+                    text-wrap: nowrap;
+                    transition: opacity .35s ease-in-out;
+                    &.txt-reg {
+                        position: absolute;
+                    }
+                    &.txt-semi {
+                        opacity: 0;
+                        letter-spacing: -0.025em;
+                    }
+                }
+                &:hover {
+                    .header__menu-link-txt {
+                        &.txt-reg {
+                            opacity: 0;
+                        }
+
+                        &.txt-semi {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+        &__langs {
+            display: flex;
+            align-items: center;
+            gap: 0 .8rem;
+            border: 1px solid rgba($cl-white, .8);
+            border-radius: .8rem;
+            padding: 1.2rem;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            &:hover {
+                border-color: $cl-cyan;
+                .header__langs-arrow {
+                    color: $cl-cyan;
+                }
+            }
+            &-arrow {
+                transition: all 0.35s ease;
+                &.active {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        &__lang {
+            display: flex;
+            align-items: center;
+            gap: 0 .8rem;
+            &-flag {
+                width: 2rem;
+            }
+            span {
+                letter-spacing: -0.02em;
+            }
+        }
+        &__right {
+            display: flex;
+            align-items: center;
+            gap: 0 3.2rem;
+        }
+    }
+</style>

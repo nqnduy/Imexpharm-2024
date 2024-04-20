@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import MessageContent from '@assets/ui/vision/message-content.svg'
+import MessageImage from '@assets/ui/vision/vision-message.jpg'
+---
+<section class="message">
+    <div class="container">
+        <div class="message-wrap">
+            <Image src={MessageImage} alt="woman" class="img is-desk" />
+            <Image src={MessageContent} alt="message content" class="img is-desk" />
+        </div>
+    </div>
+</section>
+<style lang="scss">
+    @use '@styles/colors' as *;
+    .message {
+        padding: 8.8rem 0 11rem;
+        background-color: $cl-white;
+        &-wrap {
+            display: grid;
+            grid-template-columns: 1fr;
+            > * {
+                grid-area: 1/1/2/2;
+            }
+        }
+    }
+</style>

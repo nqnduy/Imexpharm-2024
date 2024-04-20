@@ -1,0 +1,66 @@
+---
+import { Image, getImage } from 'astro:assets';
+import ValueBG from '@assets/ui/story/value-bg.jpg'
+import VisionContent from '@assets/ui/story/vision-content.svg'
+import MissionContent from '@assets/ui/story/mission-content.svg'
+import CoreContent from '@assets/ui/story/core-content.svg'
+import Core1 from '@assets/ui/story/core-1.svg'
+import Core2 from '@assets/ui/story/core-2.svg'
+import Core3 from '@assets/ui/story/core-3.svg'
+import Core4 from '@assets/ui/story/core-4.svg'
+import Core5 from '@assets/ui/story/core-5.svg'
+import Core6 from '@assets/ui/story/core-6.svg'
+// const ValueBGSrc = await getImage({src: ValueBG, format: 'webp', width: ValueBG.width})
+---
+<section class="value">
+    <div class="container">
+        <div class="value-wrap">
+            <div class="value__bg negative">
+                <Image src={ValueBG} alt="value bg" class="img is-desk" />
+            </div>
+            <div class="value__left">
+                <Image src={VisionContent} alt="vision content" class="img is-desk" />
+                <Image src={MissionContent} alt="vision bg" class="img is-desk" />
+            </div>
+            <div class="value__right">
+                <Image src={CoreContent} alt="vision content" class="img is-desk" />
+                <div class="value__core negative">
+                    <Image src={Core1} alt="core vision content" class="img is-desk" />
+                    <Image src={Core2} alt="core vision content" class="img is-desk" />
+                    <Image src={Core3} alt="core vision content" class="img is-desk" />
+                    <Image src={Core4} alt="core vision content" class="img is-desk" />
+                    <Image src={Core5} alt="core vision content" class="img is-desk" />
+                    <Image src={Core6} alt="core vision content" class="img is-desk" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    .value {
+        padding: 9.4rem 0 38rem;
+        &-wrap {
+            display: grid;
+            grid-template-columns: 1fr;
+            > * {
+                grid-area: 1/1/2/2;
+            }
+        }
+        &__bg {
+            margin-top: -9.4rem;
+            margin-bottom: -38rem;
+        }
+        &__left {
+            display: flex;
+            flex-direction: column;
+            gap: 3.2rem 0;
+        }
+        &__core {
+            display: flex;
+            flex-direction: column;
+            gap: 2.1rem 0;
+            margin-top: 1.7rem;
+        }
+    }
+</style>

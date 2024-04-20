@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import CareerTitle from '@assets/ui/story/career-title.svg';
+import Career1 from '@assets/ui/story/career-1.png';
+import Career2 from '@assets/ui/story/career-2.jpg';
+import Career3 from '@assets/ui/story/career-3.png';
+import CareerBG from '@assets/ui/story/career-bg.jpg';
+import CareerCert from '@assets/ui/story/cert.svg';
+
+---
+<section class="career">
+    <div class="container">
+        <div class="career-wrap">
+            <Image src={CareerTitle} alt="career title" class="img is-desk" />
+            <Image src={Career1} alt="career statistic" class="img is-desk career__cert" />
+            <Image src={Career2} alt="career statistic" class="img is-desk" />
+            <Image src={CareerCert} alt="career cert" class="img is-desk" />
+            <Image src={Career3} alt="career statistic" class="img is-desk" />
+            <Image src={CareerBG} alt="career statistic" class="img is-desk career__bg" />
+        </div>
+    </div>
+</section>
+<style lang="scss">
+    @use '@styles/colors' as *;
+    .career {
+        background-color: $cl-white;
+        position: relative;
+        &-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem 0;
+            padding-block: 8.8rem;
+        }
+        &__bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+        }
+    }
+</style>
