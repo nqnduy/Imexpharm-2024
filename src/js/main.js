@@ -39,5 +39,13 @@ const main = () => {
         HEADER.toggleHide(this.scrollY);
         HEADER.toggleOnScroll(this.scrollY);
     }, false);
+    window.addEventListener('click', function (event) {
+        if (header.classList.contains('open-nav')) {
+            if (!document.querySelectorAll('.header__ham:hover').length)
+                if (!document.querySelectorAll('.header__menu-link-txt:hover').length)
+                    if (!document.querySelectorAll('.header__download:hover').length)
+                    header.classList.remove('open-nav')
+        }
+    })
 }
 export default main
