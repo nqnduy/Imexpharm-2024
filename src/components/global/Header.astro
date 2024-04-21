@@ -117,6 +117,12 @@ const pathname = new URL(Astro.request.url).pathname;
             justify-content: space-between;
             align-items: center;
             position: relative;
+            &.is-mb {
+                display: none;
+                @include sm {
+                    display: flex;
+                }
+            }
         }
         &__logo {
             height: 12rem;
