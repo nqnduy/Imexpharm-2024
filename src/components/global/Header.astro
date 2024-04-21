@@ -6,15 +6,16 @@ import { Image } from 'astro:assets';
 import Logo from "@assets/icons/logo.svg";
 import VNFlag from "@assets/icons/vn-flag.svg";
 import Dropdown from "@assets/icons/dropdown.svg?raw";
+import DownloadBtn from '@assets/icons/download.svg';;
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
 const pathname = new URL(Astro.request.url).pathname;
 ---
 <header class="header">
-    <div class="container">
-        <a href={translatePath('/')}>
-            <Image src={Logo} alt="Imexpharm logo" class="img-h header__logo" />
+    <div class="container is-desk">
+        <a href={translatePath('/')} class="header__logo">
+            <Image src={Logo} alt="Imexpharm logo" class="img-h" />
         </a>
         <div class="header__right">
             <ul class="header__menu">
@@ -40,9 +41,54 @@ const pathname = new URL(Astro.request.url).pathname;
             </div>
         </div>
     </div>
+    <div class="container is-mb">
+        <div class="header__langs">
+            <div class="header__lang">
+                <Image src={VNFlag} alt='vietnam flag' class="img header__lang-flag"/>
+                <span class="heading txt txt-14">VN</span>
+            </div>
+            <div class="ic ic-24 header__langs-arrow">
+                <Fragment set:html={Dropdown} />
+            </div>
+        </div>
+        <a href={translatePath('/')} class="header__logo">
+            <Image src={Logo} alt="Imexpharm logo" class="img-h" />
+        </a>
+        <div>
+
+        </div>
+        <button class="header__ham grid grid-1">
+            <div class="header__ham-open">
+                <svg width="100%" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 18.5H21V16.5H3V18.5ZM3 13.5H21V11.5H3V13.5ZM3 6.5V8.5H21V6.5H3Z" fill="white"/>
+                </svg>
+            </div>
+            <div class="header__ham-close">
+                <svg width="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="white"/>
+                </svg>
+            </div>
+        </button>
+        <ul class="header__menu">
+            {menu[lang].map((item) => (
+                <li>
+                    <a
+                        class={cn("heading txt-link header__menu-link", { "active": pathname === translatePath(item.link) })}
+                        href={translatePath(item.link)}>
+                        <span class="txt txt-14 txt-reg header__menu-link-txt">{item.name}</span>
+                        <span class="txt txt-14 txt-semi header__menu-link-txt">{item.name}</span>
+                    </a>
+                </li>
+            ))}
+            <a href="#" class="header__download">
+                <Image src={DownloadBtn} alt="download link" class="img" />
+            </a>
+        </ul>
+    </div>
 </header>
 <style lang="scss">
     @use '@styles/colors' as *;
+    @use '@styles/mixins' as *;
     .header {
         position: fixed;
         top: 0;
@@ -51,7 +97,6 @@ const pathname = new URL(Astro.request.url).pathname;
         z-index: 100;
         width: 100%;
         transition: all 0.4s ease;
-
         &.on-hide {
             transform: translateY(-100%);
         }
@@ -60,6 +105,9 @@ const pathname = new URL(Astro.request.url).pathname;
             box-shadow: 0px 10px 50px rgba(#000, 0.40);
             backdrop-filter: blur(1rem);
             padding: 2rem 0;
+            @include sm {
+                backdrop-filter: none;
+            }
             .header__logo {
                 height: 6.5rem;
             }
@@ -68,22 +116,51 @@ const pathname = new URL(Astro.request.url).pathname;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
         &__logo {
             height: 12rem;
             transition: height 0.4s ease-in-out;
+            @include sm {
+                position: absolute;
+                height: 6.5rem;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 3;
+            }
         }
         &__menu {
             display: flex;
             align-items: center;
             gap: 0 2.8rem;
             text-transform: capitalize;
+            @include sm {
+                position: fixed;
+                flex-direction: column;
+                align-items: end;
+                gap: 2.4rem 0;
+                inset: 0;
+                padding-top: 12rem;
+                pointer-events: none;
+                background-color:$cl-dark-blue;
+                opacity: 0;
+                transition: opacity 0.4s ease-in-out;
+                z-index: 1;
+            }
             &-link {
                 position: relative;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 padding: 0 .4rem;
+                @include sm {
+                    margin-right: 1.2rem;
+                    padding: .4rem;
+                    transform: translate(1rem);
+                    opacity: 0;
+                    pointer-events: none;
+                    transition: all 0.4s ease-in-out;
+                }
                 &-txt {
                     text-wrap: nowrap;
                     transition: opacity .35s ease-in-out;
@@ -117,6 +194,13 @@ const pathname = new URL(Astro.request.url).pathname;
             padding: 1.2rem;
             cursor: pointer;
             transition: all 0.35s ease;
+            background-color: rgba(36, 203, 255, 0.2);
+            @include sm {
+                padding: .8rem;
+                border: 2px solid rgba($cl-white, .8);
+                border-color: $cl-cyan;
+                z-index: 3;
+            }
             &:hover {
                 border-color: $cl-cyan;
                 .header__langs-arrow {
@@ -125,6 +209,10 @@ const pathname = new URL(Astro.request.url).pathname;
             }
             &-arrow {
                 transition: all 0.35s ease;
+                @include sm {
+                    @include size(1.6rem);
+                    color: $cl-cyan;
+                }
                 &.active {
                     transform: rotate(180deg);
                 }
@@ -139,12 +227,72 @@ const pathname = new URL(Astro.request.url).pathname;
             }
             span {
                 letter-spacing: -0.02em;
+                @include sm {
+                    display: none;
+                }
             }
         }
         &__right {
             display: flex;
             align-items: center;
             gap: 0 3.2rem;
+        }
+        &__ham {
+            justify-content: center;
+            align-items: center;
+            padding: .5rem;
+            margin: -.5rem;
+            z-index: 3;
+            &-open,
+            &-close {
+                @include size(2.4rem);
+                transition: opacity 0.35s ease-in-out .15s;
+            }
+            &-close {
+                opacity: 0;
+            }
+        }
+        &__download {
+            width: 14rem;
+            transform: translate(1rem);
+            opacity: 0;
+            pointer-events: none;
+            margin-right: 1.2rem;
+            transition: all 0.4s ease-in-out;
+        }
+        &.open-nav {
+            &.on-scroll {
+                background-color: transparent;
+                box-shadow: none;
+            }
+            &.on-hide {
+                transform: none !important;
+            }
+            .header {
+                &__ham {
+                    &-open {
+                        opacity: 0;
+                    }
+                    &-close {
+                        opacity: 1;
+                    }
+                }
+                &__menu {
+                    pointer-events: auto;
+                    opacity: 1;
+                    &-link {
+                        transform: translate(0);
+                        pointer-events: auto;
+                        opacity: 1;
+                    }
+                }
+                &__download {
+                    transform: translate(0);
+                    pointer-events: auto;
+                    opacity: 1;
+                    transition-delay: .1s;
+                }
+            }
         }
     }
 </style>

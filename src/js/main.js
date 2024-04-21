@@ -20,9 +20,21 @@ const main = () => {
         toggleOnScroll: (scrollPos) => {
             if (scrollPos > headerHeight) header.classList.add('on-scroll')
             else header.classList.remove('on-scroll')
+        },
+        toggleNav: () => {
+            let hamburger = document.querySelector('.header__ham');
+            hamburger.addEventListener('click', () => {
+                if (header.classList.contains('open-nav')) {
+                    header.classList.remove('open-nav')
+                }
+                else {
+                    header.classList.add('open-nav')
+                }
+            })
         }
     }
 
+    HEADER.toggleNav();
     window.addEventListener("scroll", function (event) {
         HEADER.toggleHide(this.scrollY);
         HEADER.toggleOnScroll(this.scrollY);

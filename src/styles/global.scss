@@ -105,7 +105,7 @@ img {
 
     @include sm {
         --grid-column: 4;
-        --container-padding: 2rem;
+        --container-padding: 1.2rem;
     }
 
     @include xs {
@@ -157,7 +157,7 @@ ul, li {
 .is-desk {
     display: block;
     @include sm {
-        display: none;
+        display: none !important;
     }
 }
 .is-mb {

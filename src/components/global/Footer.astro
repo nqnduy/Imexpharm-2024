@@ -16,11 +16,15 @@ const lang = getLangFromUrl(Astro.url);
 </footer>
 <style lang="scss">
     @use '@styles/colors' as *;
+    @use '@styles/mixins' as *;
     .footer {
         background-color: $cl-dark-blue;
         &__pagination {
             background-color: #24408E;
             padding: 2.4rem 0;
+            @include sm {
+                padding: 1.6rem 0;
+            }
             .container {
                 display: flex;
                 justify-content: space-between;
