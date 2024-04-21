@@ -3,22 +3,36 @@ import { Image } from 'astro:assets';
 import Intro1 from '@assets/ui/manage/intro-1.svg'
 import Intro2 from '@assets/ui/manage/intro-2.svg'
 import IntroBG from '@assets/ui/manage/intro-bg.jpg'
+import IntroBGMB from '@assets/ui/manage/intro-bg-mb.jpg'
+import Intro1MB from '@assets/ui/manage/intro-1-mb.svg'
+import Intro2MB from '@assets/ui/manage/intro-2-mb.svg'
+import Intro3MB from '@assets/ui/manage/intro-3-mb.svg'
+import Intro4MB from '@assets/ui/manage/intro-4-mb.svg'
 
 ---
 <section class="intro">
     <div class="container">
         <div class="intro-bg negative">
             <Image src={IntroBG} alt="text" class="img is-desk" />
+            <Image src={IntroBGMB} alt="text" class="img is-mb" />
         </div>
         <div class="intro-wrap">
             <Image src={Intro1} alt="text" class="img is-desk" />
             <Image src={Intro2} alt="text" class="img is-desk" />
+            <Image src={Intro1MB} alt="text" class="img is-mb" />
+            <Image src={Intro2MB} alt="text" class="img is-mb" />
+            <Image src={Intro3MB} alt="text" class="img is-mb" />
+            <Image src={Intro4MB} alt="text" class="img is-mb" />
         </div>
     </div>
 </section>
 
 <style lang="scss">
+    @use "@styles/mixins" as *;
     .intro {
+        @include sm {
+            background-color: #010026;
+        }
         .container {
             display: grid;
             grid-template-columns: 1fr;
@@ -26,11 +40,18 @@ import IntroBG from '@assets/ui/manage/intro-bg.jpg'
                 grid-area: 1/1/2/2;
             }
         }
+        &-bg {
+            align-self: end;
+        }
         &-wrap {
             padding-top: 8.8rem;
             display: flex;
             flex-direction: column;
             gap: 2.4rem 0;
+            @include sm {
+                padding-top: 4rem;
+                padding-bottom: 34.7rem;
+            }
         }
     }
 </style>

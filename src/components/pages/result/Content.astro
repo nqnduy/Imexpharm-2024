@@ -15,6 +15,16 @@ import Detail91 from '@assets/ui/result/detail-9.1.png';
 import Detail92 from '@assets/ui/result/detail-9.2.png';
 import Detail93 from '@assets/ui/result/detail-9.3.png';
 
+import Detail1MB from '@assets/ui/result/detail-1-mb.svg';
+import Detail11MB from '@assets/ui/result/detail-1.1-mb.jpg';
+import Detail2MB from '@assets/ui/result/detail-2-mb.svg';
+import Detail3MB from '@assets/ui/result/detail-3-mb.svg';
+import Detail4MB from '@assets/ui/result/detail-4-mb.svg';
+import Detail5MB from '@assets/ui/result/detail-5-mb.svg';
+import Detail6MB from '@assets/ui/result/detail-6-mb.svg';
+import Detail7MB from '@assets/ui/result/detail-7-mb.svg';
+import Detail8MB from '@assets/ui/result/detail-8-mb.svg';
+
 ---
 <section class="content">
     <div class="container">
@@ -39,19 +49,39 @@ import Detail93 from '@assets/ui/result/detail-9.3.png';
                 <Image src={Detail92} alt="text" class="img is-desk" />
                 <Image src={Detail93} alt="text" class="img is-desk" />
             </div>
+
+            <Image src={Detail1MB} alt="text" class="img is-mb" />
+            <Image src={Detail11MB} alt="text" class="img is-mb" />
+            <Image src={Detail2MB} alt="text" class="img is-mb" />
+            <Image src={Detail3MB} alt="text" class="img is-mb" />
+            <Image src={Detail4MB} alt="text" class="img is-mb" />
+            <Image src={Detail5MB} alt="text" class="img is-mb" />
+            <Image src={Detail6MB} alt="text" class="img is-mb" />
+            <Image src={Detail7MB} alt="text" class="img is-mb" />
+            <Image src={Detail8MB} alt="text" class="img is-mb" />
         </div>
     </div>
 </section>
 
 <style lang="scss">
     @use "@styles/colors" as *;
+    @use "@styles/mixins" as *;
     .content {
         padding: 8.8rem 0;
         background-color: $cl-white;
+        @include sm {
+            padding: 4rem 0;
+        }
         &-wrap {
             display: flex;
             flex-direction: column;
             gap: 4rem 0;
+            @include sm {
+                gap: 2.4rem 0;
+                .grid.grid-1 {
+                    display: none;
+                }
+            }
         }
         &-col-3 {
             grid-template-columns: repeat(3, 1fr);

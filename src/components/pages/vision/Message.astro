@@ -1,26 +1,39 @@
 ---
 import { Image } from 'astro:assets';
 import MessageContent from '@assets/ui/vision/message-content.svg'
+import MessageContentMB from '@assets/ui/vision/message-content-mb.svg'
 import MessageImage from '@assets/ui/vision/vision-message.jpg'
+import MessageImageMB from '@assets/ui/vision/vision-message-mb.png'
 ---
 <section class="message">
     <div class="container">
         <div class="message-wrap">
             <Image src={MessageImage} alt="woman" class="img is-desk" />
             <Image src={MessageContent} alt="message content" class="img is-desk" />
+            <Image src={MessageContentMB} alt="message content" class="img is-mb" />
+            <Image src={MessageImageMB} alt="message content" class="img is-mb" />
         </div>
     </div>
 </section>
 <style lang="scss">
     @use '@styles/colors' as *;
+    @use '@styles/mixins' as *;
     .message {
         padding: 8.8rem 0 11rem;
         background-color: $cl-white;
+        @include sm {
+            padding: 4rem 0;
+        }
         &-wrap {
             display: grid;
             grid-template-columns: 1fr;
             > * {
                 grid-area: 1/1/2/2;
+            }
+            @include sm {
+                display: flex;
+                flex-direction: column;
+                gap: 2.4rem 0;
             }
         }
     }

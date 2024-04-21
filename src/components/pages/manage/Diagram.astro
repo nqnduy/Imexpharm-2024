@@ -1,8 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 import DiagramTitle from '@assets/ui/manage/dia-title.svg'
+import DiagramTitleMB from '@assets/ui/manage/dia-title-mb.svg'
 import DiagramIntro from '@assets/ui/manage/dia-intro.svg'
 import DiagramChart from '@assets/ui/manage/dia-chart.png'
+import DiagramChartMB from '@assets/ui/manage/dia-chart-mb.png'
 
 ---
 <section class="diagram">
@@ -11,11 +13,14 @@ import DiagramChart from '@assets/ui/manage/dia-chart.png'
             <Image src={DiagramTitle} alt="text" class="img is-desk" />
             <Image src={DiagramIntro} alt="text" class="img is-desk" />
             <Image src={DiagramChart} alt="chart" class="img is-desk" />
+            <Image src={DiagramTitleMB} alt="text" class="img is-mb" />
+            <Image src={DiagramChartMB} alt="chart" class="img is-mb" />
         </div>
     </div>
 </section>
 <style lang="scss">
     @use '@styles/colors' as *;
+    @use '@styles/mixins' as *;
     .diagram {
         background: $cl-white;
         position: relative;
@@ -30,6 +35,11 @@ import DiagramChart from '@assets/ui/manage/dia-chart.png'
             grid-template-columns: 1fr;
             > * {
                 grid-area: 1/1/2/2;
+            }
+            @include sm {
+                display: flex;
+                flex-direction: column;
+                padding-block: 4rem;
             }
         }
     }

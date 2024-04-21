@@ -1,11 +1,22 @@
 ---
 const { current_page } = Astro.props;
+import { Image } from 'astro:assets';
 import Link from '@components/global/Link.astro';
 import { menu } from '@/i18n/default';
 import { getLangFromUrl } from '@/i18n/utils';
+import DownloadBtn from '@assets/icons/download-chap.svg';
 const lang = getLangFromUrl(Astro.url);
 ---
 <footer class="footer">
+    {menu[lang][current_page].chapter && (
+        <div class="footer__download">
+            <div class="container">
+                <a href={menu[lang][current_page].chapter}>
+                    <Image src={DownloadBtn} alt="download btn" class="img" />
+                </a>
+            </div>
+        </div>
+    )}
     <div class="footer__pagination">
         <div class="container">
             {current_page - 1 >= 0 ? (<Link link={menu[lang][current_page - 1].link} text={menu[lang][current_page - 1].name} revert/>) : (<div class="footer__pagination-hidden"></div>)}
@@ -40,7 +51,23 @@ const lang = getLangFromUrl(Astro.url);
             align-items: center;
             text-align: center;
             padding: 2.4rem 0;
-            color: #fff;
+            color: $cl-white;
+        }
+        &__download {
+            background-color: $cl-white;
+            padding: 1.6rem 0;
+            width: 100%;
+            .container {
+                display: flex;
+                justify-content: end;
+            }
+            a {
+                width: 12.7rem;
+                transition: transform 0.4s ease-in-out;
+                &:hover {
+                    transform: scale(.98);
+                }
+            }
         }
     }
 </style>

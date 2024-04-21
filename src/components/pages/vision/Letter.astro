@@ -2,9 +2,13 @@
 import { Image } from 'astro:assets';
 import LetterIntroContent from '@assets/ui/vision/letter-content.svg'
 import LetterIntroImage from '@assets/ui/vision/letter-intro.jpg'
+import LetterIntroMB from '@assets/ui/vision/letter-intro-mb.png'
 import LetterDetail1 from '@assets/ui/vision/detail-1.svg'
 import LetterDetail2 from '@assets/ui/vision/detail-2.svg'
 import LetterDetail3 from '@assets/ui/vision/detail-3.svg'
+import LetterDetail1MB from '@assets/ui/vision/detail-1-mb.svg'
+import LetterDetail2MB from '@assets/ui/vision/detail-2-mb.svg'
+import LetterDetail3MB from '@assets/ui/vision/detail-3-mb.svg'
 
 ---
 <section class="letter">
@@ -12,24 +16,35 @@ import LetterDetail3 from '@assets/ui/vision/detail-3.svg'
         <div class="letter__intro">
             <Image src={LetterIntroImage} alt="letter woman" class="img is-desk" />
             <Image src={LetterIntroContent} alt="letter content" class="img is-desk" />
+            <Image src={LetterIntroMB} alt="letter content" class="img is-mb" />
         </div>
         <div class="letter__detail">
             <Image src={LetterDetail1} alt="detail letter content" class="img is-desk" />
             <Image src={LetterDetail2} alt="detail letter content" class="img is-desk" />
             <Image src={LetterDetail3} alt="detail letter content" class="img is-desk" />
+            <Image src={LetterDetail1MB} alt="detail letter content" class="img is-mb" />
+            <Image src={LetterDetail2MB} alt="detail letter content" class="img is-mb" />
+            <Image src={LetterDetail3MB} alt="detail letter content" class="img is-mb" />
         </div>
     </div>
 </section>
 
 <style lang="scss">
     @use '@styles/colors' as *;
+    @use '@styles/mixins' as *;
     .letter {
         padding-block: 8.8rem;
         background-color: $cl-white;
+        @include sm {
+            padding: 4rem 0;
+        }
         &__intro {
             display: grid;
             grid-template-columns: 1fr;
             margin-bottom: 4rem;
+            @include sm {
+                margin-bottom: 2.4rem;
+            }
             > * {
                 grid-area: 1/1/2/2;
             }
@@ -38,6 +53,9 @@ import LetterDetail3 from '@assets/ui/vision/detail-3.svg'
             display: flex;
             flex-direction: column;
             gap: 4rem 0;
+            @include sm {
+                gap: 2.4rem 0;
+            }
         }
     }
 </style>

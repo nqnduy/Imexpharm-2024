@@ -1,10 +1,11 @@
 ---
 import { Image } from 'astro:assets';
-import Intro1 from '@assets/ui/manage/intro-1.svg'
 import PersonnelBG1 from '@assets/ui/manage/personnel-bg-1.jpg';
 import PersonnelBG2 from '@assets/ui/manage/personnel-bg-2.jpg';
 import PeopleTitle1 from '@assets/ui/manage/people-title1.svg';
 import PeopleTitle2 from '@assets/ui/manage/people-title2.svg';
+import PeopleTitle1MB from '@assets/ui/manage/personnel-title1-mb.svg';
+import PeopleTitle2MB from '@assets/ui/manage/personnel-title2-mb.svg';
 import People1 from '@assets/ui/manage/people-1.png';
 import People2 from '@assets/ui/manage/people-2.png';
 import People3 from '@assets/ui/manage/people-3.png';
@@ -19,6 +20,8 @@ import People11 from '@assets/ui/manage/people-11.png';
 import People12 from '@assets/ui/manage/people-12.png';
 import People13 from '@assets/ui/manage/people-13.png';
 import People14 from '@assets/ui/manage/people-14.png';
+import People15 from '@assets/ui/manage/people-15.png';
+import People16 from '@assets/ui/manage/people-16.png';
 import People151 from '@assets/ui/manage/people-15.1.png';
 import People152 from '@assets/ui/manage/people-15.2.png';
 
@@ -30,14 +33,15 @@ import People152 from '@assets/ui/manage/people-15.2.png';
         </div>
         <div class="personnel__list">
             <Image src={PeopleTitle1} alt="text" class="img is-desk" />
-            <Image src={People1} alt="text" class="img is-desk" />
-            <Image src={People2} alt="text" class="img is-desk" />
-            <Image src={People3} alt="text" class="img is-desk" />
-            <Image src={People4} alt="text" class="img is-desk" />
-            <Image src={People5} alt="text" class="img is-desk" />
-            <Image src={People6} alt="text" class="img is-desk" />
-            <Image src={People7} alt="text" class="img is-desk" />
-            <Image src={People8} alt="text" class="img is-desk" />
+            <Image src={PeopleTitle1MB} alt="text" class="img is-mb" />
+            <Image src={People1} alt="text" class="img" />
+            <Image src={People2} alt="text" class="img" />
+            <Image src={People3} alt="text" class="img" />
+            <Image src={People4} alt="text" class="img" />
+            <Image src={People5} alt="text" class="img" />
+            <Image src={People6} alt="text" class="img" />
+            <Image src={People7} alt="text" class="img" />
+            <Image src={People8} alt="text" class="img" />
         </div>
     </div>
     <div class="container">
@@ -46,12 +50,15 @@ import People152 from '@assets/ui/manage/people-15.2.png';
         </div>
         <div class="personnel__list">
             <Image src={PeopleTitle2} alt="text" class="img is-desk" />
-            <Image src={People9} alt="text" class="img is-desk" />
-            <Image src={People10} alt="text" class="img is-desk" />
-            <Image src={People11} alt="text" class="img is-desk" />
-            <Image src={People12} alt="text" class="img is-desk" />
-            <Image src={People13} alt="text" class="img is-desk" />
-            <Image src={People14} alt="text" class="img is-desk" />
+            <Image src={PeopleTitle2MB} alt="text" class="img is-mb" />
+            <Image src={People9} alt="text" class="img" />
+            <Image src={People10} alt="text" class="img" />
+            <Image src={People11} alt="text" class="img" />
+            <Image src={People12} alt="text" class="img" />
+            <Image src={People13} alt="text" class="img" />
+            <Image src={People14} alt="text" class="img" />
+            <Image src={People15} alt="text" class="img is-mb" />
+            <Image src={People16} alt="text" class="img is-mb" />
             <div class="grid grid-1">
                 <Image src={People151} alt="text" class="img is-desk" />
                 <Image src={People152} alt="text" class="img is-desk" />
@@ -61,8 +68,12 @@ import People152 from '@assets/ui/manage/people-15.2.png';
 </section>
 
 <style lang="scss">
-    .personnel {
+    @use '@styles/mixins' as *;
+        .personnel {
         background-color: #00001F;
+        @include sm {
+            padding: 2rem 0;
+        }
         .container {
             display: grid;
             grid-template-columns: 1fr;
@@ -78,11 +89,20 @@ import People152 from '@assets/ui/manage/people-15.2.png';
             grid-template-columns: repeat(3, 1fr);
             gap: 3.2rem 2.4rem;
             padding: 8.8rem 0;
+            @include sm {
+                padding: 2rem 0;
+                display: flex;
+                flex-direction: column;
+                gap: 2.4rem 0;
+            }
             > *:first-child {
                 grid-column: span 3;
             }
             .grid-1 {
                 grid-column: span 3;
+                @include sm {
+                    display: none;
+                }
             }
         }
     }

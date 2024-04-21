@@ -17,6 +17,7 @@ html {
     text-rendering: optimizeSpeed;
     font-kerning: none;
     background: #13151a;
+    overflow-x: hidden;
 
     &.lenis {
         height: auto;
@@ -37,6 +38,12 @@ main {
             grid-area: 1/1/2/2;
         }
     }
+    // &.is-mb {
+    //     display: none;
+    //     @include sm {
+    //         display: grid;
+    //     }
+    // }
 }
 
 img {
@@ -80,8 +87,6 @@ img {
     width: 100%;
     margin: 0 auto;
     padding: 0 var(--container-padding);
-
-    // max-width: var(--container-width);
     &.fluid {
         max-width: none;
     }
@@ -92,10 +97,20 @@ img {
     &.negative {
         > * {
             margin-inline: calc(var(--container-padding) * -1);
+            width: calc(100% + var(--container-padding) * 2);
+            @include md {
+                margin-inline: -31rem;
+                width: calc(100% +  62rem);
+            }
+            @include sm {
+                margin-inline: calc(var(--container-padding) * -1);
+                width: calc(100% + var(--container-padding) * 2);
+            }
         }
     }
     .negative {
         margin-inline: calc(var(--container-padding) * -1);
+        width: calc(100% + var(--container-padding) * 2);
     }
 
     @include md {

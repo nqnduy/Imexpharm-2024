@@ -20,22 +20,22 @@ export const ui = {
 export const menu = {
     vi: [
         { name: 'Trang chủ', link: './' },
-        { name: 'Tầm nhìn', link: './tam-nhin' },
-        { name: 'Câu chuyện', link: './cau-chuyen' },
-        { name: 'Kết quả', link: './ket-qua' },
-        { name: 'Quản trị', link: './quan-tri' },
-        { name: 'Đổi mới', link: './doi-moi' },
-        { name: 'Báo cáo', link: './bao-cao' },
-        { name: 'Liên hệ', link: './lien-he' }
+        { name: 'Tầm nhìn', link: './tam-nhin', chapter: '#' },
+        { name: 'Câu chuyện', link: './cau-chuyen', chapter: '#' },
+        { name: 'Kết quả', link: './ket-qua', chapter: '#' },
+        { name: 'Quản trị', link: './quan-tri', chapter: '#' },
+        { name: 'Đổi mới', link: './doi-moi', chapter: '#' },
+        { name: 'Báo cáo', link: './bao-cao', chapter: '#' },
+        { name: 'Liên hệ', link: './lien-he', chapter: '#' }
     ],
     en: [
         { name: 'Home', link: './' },
-        { name: 'Vision', link: './tam-nhin' },
-        { name: 'Story', link: './cau-chuyen' },
-        { name: 'Result', link: './ket-qua' },
-        { name: 'Manage', link: './quan-tri' },
-        { name: 'Renew', link: './doi-moi' },
-        { name: 'Report', link: './bao-cao' },
-        { name: 'Contact', link: './lien-he' },
+        { name: 'Vision', link: './tam-nhin', chapter: '#' },
+        { name: 'Story', link: './cau-chuyen', chapter: '#' },
+        { name: 'Result', link: './ket-qua', chapter: '#' },
+        { name: 'Manage', link: './quan-tri', chapter: '#' },
+        { name: 'Renew', link: './doi-moi', chapter: '#' },
+        { name: 'Report', link: './bao-cao', chapter: '#' },
+        { name: 'Contact', link: './lien-he', chapter: '#' },
     ]
 } as const
