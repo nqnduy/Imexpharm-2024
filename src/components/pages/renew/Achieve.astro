@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import AchieveTitle from '@assets/ui/renew/achieve-title.svg'
+import AchieveTitleMB from '@assets/ui/renew/achieve-title-mb.svg'
 import AchieveBG from '@assets/ui/renew/achieve-bg.jpg'
 import Achieve1 from '@assets/ui/renew/achieve-1.png'
 import Achieve2 from '@assets/ui/renew/achieve-2.png'
@@ -10,6 +11,14 @@ import Achieve5 from '@assets/ui/renew/achieve-5.png'
 import Achieve6 from '@assets/ui/renew/achieve-6.png'
 import Achieve7 from '@assets/ui/renew/achieve-7.png'
 import Achieve8 from '@assets/ui/renew/achieve-8.png'
+import Achieve1MB from '@assets/ui/renew/achieve-1-mb.png'
+import Achieve2MB from '@assets/ui/renew/achieve-2-mb.png'
+import Achieve3MB from '@assets/ui/renew/achieve-3-mb.png'
+import Achieve4MB from '@assets/ui/renew/achieve-4-mb.png'
+import Achieve5MB from '@assets/ui/renew/achieve-5-mb.png'
+import Achieve6MB from '@assets/ui/renew/achieve-6-mb.png'
+import Achieve7MB from '@assets/ui/renew/achieve-7-mb.png'
+import Achieve8MB from '@assets/ui/renew/achieve-8-mb.png'
 ---
 <section class="achieve">
     <div class="container">
@@ -18,23 +27,34 @@ import Achieve8 from '@assets/ui/renew/achieve-8.png'
         </div>
         <div class="achieve-wrap">
             <Image src={AchieveTitle} alt="text" class="img is-desk" />
-            <div class="achieve__list">
+            <Image src={AchieveTitleMB} alt="text" class="img is-mb" />
+            <div class="achieve__list is-desk">
                 <div class="grid grid-1">
-                    <Image src={Achieve1} alt="text" class="img is-desk" />
-                    <Image src={Achieve2} alt="text" class="img is-desk" />
+                    <Image src={Achieve1} alt="text" class="im" />
+                    <Image src={Achieve2} alt="text" class="im" />
                 </div>
                 <div class="grid grid-1">
-                    <Image src={Achieve3} alt="text" class="img is-desk" />
-                    <Image src={Achieve4} alt="text" class="img is-desk" />
+                    <Image src={Achieve3} alt="text" class="im" />
+                    <Image src={Achieve4} alt="text" class="im" />
                 </div>
                 <div class="grid grid-1">
-                    <Image src={Achieve5} alt="text" class="img is-desk" />
-                    <Image src={Achieve6} alt="text" class="img is-desk" />
+                    <Image src={Achieve5} alt="text" class="im" />
+                    <Image src={Achieve6} alt="text" class="im" />
                 </div>
                 <div class="grid grid-1">
-                    <Image src={Achieve7} alt="text" class="img is-desk" />
-                    <Image src={Achieve8} alt="text" class="img is-desk" />
+                    <Image src={Achieve7} alt="text" class="img" />
+                    <Image src={Achieve8} alt="text" class="img" />
                 </div>
+            </div>
+            <div class="achieve__list is-mb">
+                <Image src={Achieve1MB} alt="text" class="img" />
+                <Image src={Achieve2MB} alt="text" class="img" />
+                <Image src={Achieve3MB} alt="text" class="img" />
+                <Image src={Achieve4MB} alt="text" class="img" />
+                <Image src={Achieve5MB} alt="text" class="img" />
+                <Image src={Achieve6MB} alt="text" class="img" />
+                <Image src={Achieve7MB} alt="text" class="img" />
+                <Image src={Achieve8MB} alt="text" class="img" />
             </div>
         </div>
     </div>
@@ -42,6 +62,7 @@ import Achieve8 from '@assets/ui/renew/achieve-8.png'
 
 <style lang="scss">
     @use '@styles/colors' as *;
+    @use '@styles/mixins' as *;
     .achieve {
         background-color: $cl-dark-blue;
         .container {
@@ -56,6 +77,10 @@ import Achieve8 from '@assets/ui/renew/achieve-8.png'
             display: flex;
             flex-direction: column;
             gap: 4rem 0;
+            @include sm {
+                padding: 4rem 0;
+                gap: 2.4rem 0;
+            }
         }
     }
 </style>

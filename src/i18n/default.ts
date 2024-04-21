@@ -25,8 +25,8 @@ export const menu = {
         { name: 'Kết quả', link: './ket-qua', chapter: '#' },
         { name: 'Quản trị', link: './quan-tri', chapter: '#' },
         { name: 'Đổi mới', link: './doi-moi', chapter: '#' },
-        { name: 'Báo cáo', link: './bao-cao', chapter: '#' },
-        { name: 'Liên hệ', link: './lien-he', chapter: '#' }
+        { name: 'Báo cáo', link: './bao-cao' },
+        { name: 'Liên hệ', link: './lien-he' }
     ],
     en: [
         { name: 'Home', link: './' },
@@ -35,7 +35,7 @@ export const menu = {
         { name: 'Result', link: './ket-qua', chapter: '#' },
         { name: 'Manage', link: './quan-tri', chapter: '#' },
         { name: 'Renew', link: './doi-moi', chapter: '#' },
-        { name: 'Report', link: './bao-cao', chapter: '#' },
-        { name: 'Contact', link: './lien-he', chapter: '#' },
+        { name: 'Report', link: './bao-cao' },
+        { name: 'Contact', link: './lien-he' },
     ]
 } as const

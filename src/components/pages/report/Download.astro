@@ -1,8 +1,11 @@
 ---
 import { Image } from 'astro:assets';
 import DownloadTitle from '@assets/ui/report/download-title.svg';
+import DownloadTitleMB from '@assets/ui/report/download-title-mb.svg';
 import DownloadVN from '@assets/ui/report/download-link-vn.svg';
 import DownloadEN from '@assets/ui/report/download-link-en.svg';
+import DownloadVNMB from '@assets/ui/report/download-link-vn-mb.svg';
+import DownloadENMB from '@assets/ui/report/download-link-en-mb.svg';
 import DownloadBtn from '@assets/ui/report/download-btn.svg';
 
 ---
@@ -10,16 +13,19 @@ import DownloadBtn from '@assets/ui/report/download-btn.svg';
     <div class="container">
         <div class="download-wrap">
             <Image src={DownloadTitle} alt="text" class="img is-desk" />
+            <Image src={DownloadTitleMB} alt="text" class="img is-mb" />
             <div class="grid grid-1">
                 <Image src={DownloadVN} alt="text" class="img is-desk" />
+                <Image src={DownloadVNMB} alt="text" class="img is-mb" />
                 <a href="#" class="download__btn">
-                    <Image src={DownloadBtn} alt="download link" class="img is-desk" />
+                    <Image src={DownloadBtn} alt="download link" class="img" />
                 </a>
             </div>
             <div class="grid grid-1">
                 <Image src={DownloadEN} alt="text" class="img is-desk" />
+                <Image src={DownloadENMB} alt="text" class="img is-mb" />
                 <a href="#" class="download__btn">
-                    <Image src={DownloadBtn} alt="download link" class="img is-desk" />
+                    <Image src={DownloadBtn} alt="download link" class="img" />
                 </a>
             </div>
         </div>
@@ -28,13 +34,20 @@ import DownloadBtn from '@assets/ui/report/download-btn.svg';
 
 <style lang="scss">
     @use '@styles/colors' as *;
+    @use '@styles/mixins' as *;
     .download {
         background-color: $cl-white;
         padding: 8.8rem 0 27.6rem;
+        @include sm {
+            padding: 4rem 0 28.2rem;
+        }
         &-wrap {
             display: flex;
             flex-direction: column;
             gap: 4rem 0;
+            @include sm {
+                gap: 2.4rem 0;
+            }
         }
         .grid {
             align-items: center;
@@ -44,6 +57,13 @@ import DownloadBtn from '@assets/ui/report/download-btn.svg';
             justify-self: end;
             margin-right: 4.8rem;
             transition: transform 0.4s ease-in-out;
+            @include sm {
+                width: 14.3rem;
+                margin-right: 0;
+                justify-self:center;
+                align-self: end;
+                margin-bottom: 2.4rem;
+            }
             &:hover {
                 transform: scale(.98);
             }
