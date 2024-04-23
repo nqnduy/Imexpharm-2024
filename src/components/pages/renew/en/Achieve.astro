@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets';
+import AchieveTitle from '@assets/ui/renew/en/achieve-title.svg'
+import AchieveTitleMB from '@assets/ui/renew/en/achieve-title-mb.svg'
+import AchieveBG from '@assets/ui/renew/achieve-bg.jpg'
+import Achieve1 from '@assets/ui/renew/en/achieve-1.png'
+import Achieve2 from '@assets/ui/renew/en/achieve-2.png'
+import Achieve3 from '@assets/ui/renew/en/achieve-3.png'
+import Achieve4 from '@assets/ui/renew/en/achieve-4.png'
+import Achieve5 from '@assets/ui/renew/en/achieve-5.png'
+import Achieve6 from '@assets/ui/renew/en/achieve-6.png'
+import Achieve7 from '@assets/ui/renew/en/achieve-7.png'
+import Achieve8 from '@assets/ui/renew/en/achieve-8.png'
+import Achieve1MB from '@assets/ui/renew/en/achieve-1-mb.jpg'
+import Achieve2MB from '@assets/ui/renew/en/achieve-2-mb.jpg'
+import Achieve3MB from '@assets/ui/renew/en/achieve-3-mb.jpg'
+import Achieve4MB from '@assets/ui/renew/en/achieve-4-mb.jpg'
+import Achieve5MB from '@assets/ui/renew/en/achieve-5-mb.jpg'
+import Achieve6MB from '@assets/ui/renew/en/achieve-6-mb.jpg'
+import Achieve7MB from '@assets/ui/renew/en/achieve-7-mb.jpg'
+import Achieve8MB from '@assets/ui/renew/en/achieve-8-mb.jpg'
+---
+<section class="achieve">
+    <div class="container">
+        <div class="achieve-bg negative">
+            <Image src={AchieveBG} alt="text" class="img is-desk" />
+        </div>
+        <div class="achieve-wrap">
+            <Image src={AchieveTitle} alt="text" class="img is-desk" />
+            <Image src={AchieveTitleMB} alt="text" class="img is-mb" />
+            <div class="achieve__list is-desk">
+                <div class="grid grid-1">
+                    <Image src={Achieve1} alt="text" class="im" />
+                    <Image src={Achieve2} alt="text" class="im" />
+                </div>
+                <div class="grid grid-1">
+                    <Image src={Achieve3} alt="text" class="im" />
+                    <Image src={Achieve4} alt="text" class="im" />
+                </div>
+                <div class="grid grid-1">
+                    <Image src={Achieve5} alt="text" class="im" />
+                    <Image src={Achieve6} alt="text" class="im" />
+                </div>
+                <div class="grid grid-1">
+                    <Image src={Achieve7} alt="text" class="img" />
+                    <Image src={Achieve8} alt="text" class="img" />
+                </div>
+            </div>
+            <div class="achieve__list is-mb">
+                <Image src={Achieve1MB} alt="text" class="img" />
+                <Image src={Achieve2MB} alt="text" class="img" />
+                <Image src={Achieve3MB} alt="text" class="img" />
+                <Image src={Achieve4MB} alt="text" class="img" />
+                <Image src={Achieve5MB} alt="text" class="img" />
+                <Image src={Achieve6MB} alt="text" class="img" />
+                <Image src={Achieve7MB} alt="text" class="img" />
+                <Image src={Achieve8MB} alt="text" class="img" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @use '@styles/colors' as *;
+    @use '@styles/mixins' as *;
+    .achieve {
+        background-color: $cl-dark-blue;
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            > * {
+                grid-area: 1/1/2/2;
+            }
+        }
+        &-wrap {
+            padding: 8.8rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem 0;
+            @include sm {
+                padding: 4rem 0;
+                gap: 2.4rem 0;
+            }
+        }
+    }
+</style>

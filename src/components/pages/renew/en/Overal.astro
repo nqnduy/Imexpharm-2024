@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets';
+import OveralTitle from '@assets/ui/renew/en/overal-title.svg'
+import OveralTitleMB from '@assets/ui/renew/en/overal-title-mb.svg'
+import OveralIc from '@assets/ui/renew/overal-ic.svg';
+import Overal1 from '@assets/ui/renew/en/overal-1.jpg'
+import Overal2 from '@assets/ui/renew/en/overal-2.jpg'
+import Overal3 from '@assets/ui/renew/en/overal-3.jpg'
+import Overal4 from '@assets/ui/renew/en/overal-4.jpg'
+import Overal5 from '@assets/ui/renew/en/overal-5.jpg'
+import Overal6 from '@assets/ui/renew/en/overal-6.jpg'
+import Overal1MB from '@assets/ui/renew/en/overal-1-mb.png'
+import Overal2MB from '@assets/ui/renew/en/overal-2-mb.png'
+import Overal3MB from '@assets/ui/renew/en/overal-3-mb.jpg'
+import Overal4MB from '@assets/ui/renew/en/overal-4-mb.jpg'
+import Overal5MB from '@assets/ui/renew/en/overal-5-mb.jpg'
+import Overal6MB from '@assets/ui/renew/en/overal-6-mb.jpg'
+---
+<section class="overal">
+    <div class="container">
+        <div class="overal-wrap">
+            <Image src={OveralTitle} alt="text" class="img is-desk" />
+            <Image src={OveralTitleMB} alt="text" class="img is-mb" />
+            <Image src={OveralIc} alt="text" class="img is-desk" />
+            <div class="grid overal__list">
+                <Image src={Overal1} alt="text" class="img is-desk" />
+                <Image src={Overal2} alt="text" class="img is-desk" />
+                <Image src={Overal3} alt="text" class="img is-desk" />
+                <Image src={Overal4} alt="text" class="img is-desk" />
+                <Image src={Overal5} alt="text" class="img is-desk" />
+                <Image src={Overal6} alt="text" class="img is-desk" />
+                <Image src={Overal1MB} alt="text" class="img is-mb" style={{ marginTop: '-2.1rem' }} />
+                <Image src={Overal2MB} alt="text" class="img is-mb" style={{ marginTop: '-2.1rem' }} />
+                <Image src={Overal3MB} alt="text" class="img is-mb" />
+                <Image src={Overal4MB} alt="text" class="img is-mb" />
+                <Image src={Overal5MB} alt="text" class="img is-mb" />
+                <Image src={Overal6MB} alt="text" class="img is-mb" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @use '@styles/colors' as *;
+    @use '@styles/mixins' as *;
+    .overal {
+        padding-block: 8.8rem;
+        background-color: $cl-dark-blue;
+        @include sm {
+            padding-block: 4rem;
+        }
+        &-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem 0;
+        }
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            margin-top: -6rem;
+            z-index: -1;
+            @include sm {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                margin-top: 0rem;
+
+            }
+        }
+    }
+</style>
