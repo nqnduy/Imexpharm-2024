@@ -5,8 +5,10 @@ import { menu } from '@/i18n/default';
 import { Image } from 'astro:assets';
 import Logo from "@assets/icons/logo.svg";
 import VNFlag from "@assets/icons/vn-flag.svg";
+import USFlag from "@assets/icons/en/us-flag.svg";
 import Dropdown from "@assets/icons/dropdown.svg?raw";
-import DownloadBtn from '@assets/icons/download.svg';;
+import DownloadBtn from '@assets/icons/download.svg';
+import DownloadBtnEn from '@assets/icons/en/download.svg';
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
@@ -31,12 +33,20 @@ const pathname = new URL(Astro.request.url).pathname;
                 ))}
             </ul>
             <a href="#" class="header__download">
-                <Image src={DownloadBtn} alt="download link" class="img" />
+                {lang === 'vi' ? (
+                    <Image src={DownloadBtn} alt="download link" class="img img-h" />
+                ) :
+                (
+                    <Image src={DownloadBtnEn} alt="download link" class="img img-h" />
+                )}
             </a>
             <div class="header__langs">
-                <div class="header__lang">
+                <a href={'/'} class={cn("header__lang", { "current": lang === 'vi' })}>
                     <Image src={VNFlag} alt='vietnam flag' class="img header__lang-flag"/>
-                </div>
+                </a>
+                <a href={'/en'} class={cn("header__lang", { "current": lang === 'en' })}>
+                    <Image src={USFlag} alt='us flag' class="img header__lang-flag"/>
+                </a>
                 <div class="ic ic-24 header__langs-arrow">
                     <Fragment set:html={Dropdown} />
                 </div>
@@ -45,9 +55,12 @@ const pathname = new URL(Astro.request.url).pathname;
     </div>
     <div class="container is-mb">
         <div class="header__langs">
-            <div class="header__lang">
+            <a href={'/'} class={cn("header__lang", { "current": lang === 'vi' })}>
                 <Image src={VNFlag} alt='vietnam flag' class="img header__lang-flag"/>
-            </div>
+            </a>
+            <a href={'/en'} class={cn("header__lang", { "current": lang === 'en' })}>
+                <Image src={USFlag} alt='us flag' class="img header__lang-flag"/>
+            </a>
             <div class="ic ic-24 header__langs-arrow">
                 <Fragment set:html={Dropdown} />
             </div>
@@ -56,7 +69,6 @@ const pathname = new URL(Astro.request.url).pathname;
             <Image src={Logo} alt="Imexpharm logo" class="img-h" />
         </a>
         <div>
-
         </div>
         <button class="header__ham grid grid-1">
             <div class="header__ham-open">
@@ -82,7 +94,12 @@ const pathname = new URL(Astro.request.url).pathname;
                 </li>
             ))}
             <a href="#" class="header__download">
-                <Image src={DownloadBtn} alt="download link" class="img" />
+                {lang === 'vi' ? (
+                    <Image src={DownloadBtn} alt="download link" class="img img-h" />
+                ) :
+                (
+                    <Image src={DownloadBtnEn} alt="download link" class="img img-h" />
+                )}
             </a>
         </ul>
     </div>
@@ -199,9 +216,16 @@ const pathname = new URL(Astro.request.url).pathname;
                         }
                     }
                 }
+                &.active {
+                    &:after {
+                        transform: scaleX(1);
+                        transform-origin: left;
+                    }
+                }
             }
         }
         &__langs {
+            position: relative;
             display: flex;
             align-items: center;
             gap: 0 .8rem;
@@ -221,8 +245,21 @@ const pathname = new URL(Astro.request.url).pathname;
                 @include sm {
                     @include size(1.6rem);
                 }
-                &.active {
-                    transform: rotate(180deg);
+            }
+            &.active {
+                margin-top: 2.2rem;
+                padding-bottom: 3rem;
+                @include sm {
+                    margin-top: 0rem;
+                    margin-bottom: -2.2rem;
+                }
+                .header__lang:not(.current) {
+                    opacity: 1;
+                    transform: translateY(0);
+                    pointer-events: auto;
+                }
+                .header__langs-arrow {
+                    transform: rotate(-180deg);
                 }
             }
         }
@@ -230,6 +267,20 @@ const pathname = new URL(Astro.request.url).pathname;
             display: flex;
             align-items: center;
             gap: 0 .8rem;
+            position: absolute;
+            top: calc(100% - 2.5rem);
+            opacity: 0;
+            transform: translateY(-.2rem);
+            transition: all 0.4s ease-in-out;
+            z-index: 1;
+            pointer-events: none;
+            &.current {
+                position: relative;
+                opacity: 1;
+                transform: translateY(0);
+                z-index: 3;
+                pointer-events: none;
+            }
             &-flag {
                 width: 2rem;
             }
@@ -261,12 +312,12 @@ const pathname = new URL(Astro.request.url).pathname;
             }
         }
         &__download {
-            width: 14rem;
+            height: 4rem;
             @include md {
-                width: 18rem;
+                height: 5.2rem;
             }
             @include sm {
-                width: 14rem;
+                height: 4rem;
                 opacity: 0;
                 pointer-events: none;
                 margin-right: 1.2rem;

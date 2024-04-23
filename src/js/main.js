@@ -31,10 +31,24 @@ const main = () => {
                     header.classList.add('open-nav')
                 }
             })
+        },
+        toggleLang: () => {
+            let langs = document.querySelectorAll('.header__langs');
+            langs.forEach((item) => {
+                item.addEventListener('click', () => {
+                    if (item.classList.contains('active')) {
+                        item.classList.remove('active')
+                    }
+                    else {
+                        item.classList.add('active')
+                    }
+                })
+            })
         }
     }
 
     HEADER.toggleNav();
+    HEADER.toggleLang();
     window.addEventListener("scroll", function (event) {
         HEADER.toggleHide(this.scrollY);
         HEADER.toggleOnScroll(this.scrollY);

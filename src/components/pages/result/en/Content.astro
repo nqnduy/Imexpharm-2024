@@ -1,0 +1,114 @@
+---
+import { Image } from 'astro:assets';
+import Title from '@assets/ui/result/en/title.svg';
+import ContentDetailTitle from '@assets/ui/result/en/detail-1-txt.svg';
+import ContentDetailBG from '@assets/ui/result/detail-1-bg.jpg';
+import Detail2 from '@assets/ui/result/en/detail-2.svg';
+import Detail3 from '@assets/ui/result/en/detail-3.svg';
+import Detail41 from '@assets/ui/result/en/detail-4.1.svg';
+import Detail42 from '@assets/ui/result/en/detail-4.2.svg';
+import Detail5 from '@assets/ui/result/en/detail-5.svg';
+import Detail6 from '@assets/ui/result/en/detail-6.svg';
+import Detail7 from '@assets/ui/result/en/detail-7.svg';
+import Detail8 from '@assets/ui/result/en/detail-8.svg';
+import Detail91 from '@assets/ui/result/en/detail-9.1.svg';
+import Detail92 from '@assets/ui/result/en/detail-9.2.svg';
+import Detail93 from '@assets/ui/result/en/detail-9.3.svg';
+
+import Detail1MB from '@assets/ui/result/en/detail-1-mb.svg';
+import Detail11MB from '@assets/ui/result/en/detail-1.1-mb.jpg';
+import Detail2MB from '@assets/ui/result/en/detail-2-mb.svg';
+import Detail3MB from '@assets/ui/result/en/detail-3-mb.svg';
+import Detail4MB from '@assets/ui/result/en/detail-4-mb.svg';
+import Detail5TitleMB from '@assets/ui/result/en/detail-5-title-mb.svg';
+import Detail5DesMB from '@assets/ui/result/en/detail-5-des-mb.svg';
+import Detail5MB from '@assets/ui/result/en/detail-5-mb.svg';
+import Detail6MB from '@assets/ui/result/en/detail-6-mb.svg';
+import Detail7MB from '@assets/ui/result/en/detail-7-mb.svg';
+import Detail8MB from '@assets/ui/result/en/detail-8-mb.svg';
+
+---
+<section class="content">
+    <div class="container">
+        <div class="content-wrap">
+            <Image src={Title} alt="text" class="img is-desk" />
+            <div class="grid grid-1">
+                <Image src={ContentDetailBG} alt="text" class="img is-desk" />
+                <Image src={ContentDetailTitle} alt="text" class="img is-desk" />
+            </div>
+            <Image src={Detail2} alt="text" class="img is-desk" />
+            <Image src={Detail3} alt="text" class="img is-desk" />
+            <div class="grid grid-1">
+                <Image src={Detail41} alt="text" class="img is-desk" />
+                <Image src={Detail42} alt="text" class="img is-desk" />
+            </div>
+            <Image src={Detail5} alt="text" class="img is-desk" />
+            <Image src={Detail6} alt="text" class="img is-desk" />
+            <Image src={Detail7} alt="text" class="img is-desk" />
+            <Image src={Detail8} alt="text" class="img is-desk" />
+            <div class="grid content-col-3">
+                <Image src={Detail91} alt="text" class="img is-desk" />
+                <Image src={Detail92} alt="text" class="img is-desk" />
+                <Image src={Detail93} alt="text" class="img is-desk" />
+            </div>
+
+            <Image src={Detail1MB} alt="text" class="img is-mb" />
+            <Image src={Detail11MB} alt="text" class="img is-mb" />
+            <Image src={Detail2MB} alt="text" class="img is-mb" />
+            <Image src={Detail3MB} alt="text" class="img is-mb" />
+            <Image src={Detail4MB} alt="text" class="img is-mb" />
+            <Image src={Detail5TitleMB} alt="text" class="img is-mb" />
+            <div class="content__drag">
+                <Image src={Detail5MB} alt="text" class="img is-mb" />
+            </div>
+            <Image src={Detail5DesMB} alt="text" class="img is-mb" />
+            <Image src={Detail6MB} alt="text" class="img is-mb" />
+            <Image src={Detail7MB} alt="text" class="img is-mb" />
+            <Image src={Detail8MB} alt="text" class="img is-mb" />
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @use "@styles/colors" as *;
+    @use "@styles/mixins" as *;
+    .content {
+        padding: 8.8rem 0;
+        background-color: $cl-white;
+        @include sm {
+            padding: 4rem 0;
+        }
+        &-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem 0;
+            @include sm {
+                gap: 2.4rem 0;
+                .grid.grid-1 {
+                    display: none;
+                }
+            }
+        }
+        &-col-3 {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0 1.6rem;
+        }
+        &__drag {
+            img {
+                @include sm {
+                    width: 129.6rem;
+                }
+            }
+            @include sm {
+                overflow-y: clip;
+                overflow-x: auto;
+                scroll-behavior: smooth;
+                margin-right: -1.2rem;
+                margin-top: -2.4rem;
+                margin-bottom: -1.5rem;
+                padding-bottom: .8rem;
+                @include custom-scroll(.7rem, transparent, linear-gradient(#00a93c, #24cbff));
+            }
+        }
+    }
+</style>

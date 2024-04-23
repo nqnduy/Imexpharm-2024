@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import HeroContent from '@assets/ui/home/en/home-hero.svg'
+import HeroBackground from '@assets/ui/home/hero-bg.jpg'
+import HeroContentMB from '@assets/ui/home/en/home-hero-mb.svg'
+import HeroBackgroundMB from '@assets/ui/home/hero-bg-mb.jpg'
+---
+<section class="hero">
+    <div class="container negative">
+        <div class="hero-wrap">
+            <Image src={HeroBackground} loading="eager" alt="hero bg" class="img is-desk" />
+            <Image src={HeroContent} loading="eager" alt="hero content" class="img is-desk" />
+            <Image src={HeroBackgroundMB} loading="eager" alt="hero content" class="img is-mb" />
+            <Image src={HeroContentMB} loading="eager" alt="hero content" class="img is-mb" />
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    .hero {
+        &-wrap {
+            display: grid;
+            grid-template-columns: 1fr;
+            > * {
+                grid-area: 1/1/2/2;
+            }
+        }
+    }
+</style>

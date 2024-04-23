@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import HistoryBackground from '@assets/ui/story/en/history-bg.jpg';
+import HistoryBackgroundBG from '@assets/ui/story/en/history-bg-mb.jpg';
+import HistoryContent from '@assets/ui/story/en/history-content.svg';
+import HistoryContentMB from '@assets/ui/story/en/history-content-mb.svg';
+---
+<section class="history">
+    <div class="container negative">
+        <div class="history-wrap">
+            <Image src={HistoryBackground} alt="history bg" class="img is-desk" />
+            <Image src={HistoryContent} alt="hero content" class="img is-desk" />
+            <Image src={HistoryBackgroundBG} alt="hero content" class="img is-mb" />
+            <Image src={HistoryContentMB} alt="hero content" class="img is-mb" />
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    .history {
+        &-wrap {
+            display: grid;
+            grid-template-columns: 1fr;
+            > * {
+                grid-area: 1/1/2/2;
+            }
+        }
+    }
+</style>

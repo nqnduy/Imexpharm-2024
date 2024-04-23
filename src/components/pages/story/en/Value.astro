@@ -1,0 +1,94 @@
+---
+import { Image, getImage } from 'astro:assets';
+import ValueBG from '@assets/ui/story/en/value-bg.jpg'
+import VisionContent from '@assets/ui/story/en/vision-content.svg'
+import VisionContentMB from '@assets/ui/story/en/vision-content-mb.svg'
+import MissionContent from '@assets/ui/story/en/mission-content.svg'
+import CoreContent from '@assets/ui/story/en/core-content.svg'
+import CoreContentMB from '@assets/ui/story/en/core-content-mb.svg'
+import CoreBG from '@assets/ui/story/core-bg.jpg'
+import Core1 from '@assets/ui/story/en/core-1.svg'
+import Core2 from '@assets/ui/story/en/core-2.svg'
+import Core3 from '@assets/ui/story/en/core-3.svg'
+import Core4 from '@assets/ui/story/en/core-4.svg'
+import Core5 from '@assets/ui/story/en/core-5.svg'
+import Core6 from '@assets/ui/story/en/core-6.svg'
+import VisionBG from '@assets/ui/story/vision-bg.jpg'
+
+---
+<section class="value">
+    <div class="container">
+        <div class="value-wrap is-desk">
+            <div class="value__bg negative">
+                <Image src={ValueBG} alt="value bg" class="img" />
+            </div>
+            <div class="value__left">
+                <Image src={VisionContent} alt="vision content" class="img" />
+                <Image src={MissionContent} alt="vision bg" class="img" />
+            </div>
+            <div class="value__right">
+                <Image src={CoreContent} alt="vision content" class="img" />
+                <div class="value__core negative">
+                    <Image src={Core1} alt="core vision content" class="img" />
+                    <Image src={Core2} alt="core vision content" class="img" />
+                    <Image src={Core3} alt="core vision content" class="img" />
+                    <Image src={Core4} alt="core vision content" class="img" />
+                    <Image src={Core5} alt="core vision content" class="img" />
+                    <Image src={Core6} alt="core vision content" class="img" />
+                </div>
+            </div>
+        </div>
+        <div class="value-wrap negative is-mb">
+            <div class="grid grid-1">
+                <Image src={VisionBG} alt="vision bg" class="img" />
+                <Image src={VisionContentMB} alt="vision content" class="img" />
+            </div>
+            <div class="grid grid-1">
+                <Image src={CoreBG} alt="vision bg" class="img" />
+                <Image src={CoreContentMB} alt="vision content" class="img" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @use '@styles/mixins' as *;
+    .value {
+        padding: 9.4rem 0 38rem;
+        @include md {
+            padding-bottom: 10rem;
+        }
+        @include sm {
+            padding: 0;
+        }
+        &-wrap {
+            display: grid;
+            grid-template-columns: 1fr;
+            > * {
+                grid-area: 1/1/2/2;
+            }
+            &.is-mb {
+                display: none;
+                @include sm {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+        &__bg {
+            margin-top: -9.4rem;
+            margin-bottom: -38rem;
+        }
+        &__left {
+            display: flex;
+            flex-direction: column;
+            gap: 3.2rem 0;
+        }
+        &__core {
+            display: flex;
+            flex-direction: column;
+            gap: 2.1rem 0;
+            margin-top: 1.7rem;
+        }
+    }
+</style>

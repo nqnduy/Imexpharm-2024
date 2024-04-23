@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import DiagramTitle from '@assets/ui/manage/en/dia-title.svg'
+import DiagramTitleMB from '@assets/ui/manage/en/dia-title-mb.svg'
+import DiagramIntro from '@assets/ui/manage/en/dia-intro.svg'
+import DiagramChart from '@assets/ui/manage/en/dia-chart.png'
+import DiagramChartMB from '@assets/ui/manage/en/dia-chart-mb.png'
+
+---
+<section class="diagram">
+    <div class="container negative">
+        <div class="diagram-wrap">
+            <Image src={DiagramTitle} alt="text" class="img is-desk" />
+            <Image src={DiagramIntro} alt="text" class="img is-desk" />
+            <Image src={DiagramChart} alt="chart" class="img is-desk" />
+            <Image src={DiagramTitleMB} alt="text" class="img is-mb" />
+            <Image src={DiagramChartMB} alt="chart" class="img is-mb" />
+        </div>
+    </div>
+</section>
+<style lang="scss">
+    @use '@styles/colors' as *;
+    @use '@styles/mixins' as *;
+    .diagram {
+        background: $cl-white;
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.8),rgba(180, 237, 255, 0.48), rgba(36, 64, 142, 0.48) 110%);
+        }
+        &-wrap {
+            display: grid;
+            grid-template-columns: 1fr;
+            > * {
+                grid-area: 1/1/2/2;
+            }
+            @include sm {
+                display: flex;
+                flex-direction: column;
+                padding-block: 4rem;
+            }
+        }
+    }
+</style>

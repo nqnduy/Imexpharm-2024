@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import CareerTitle from '@assets/ui/story/en/career-title.svg';
+import CareerTitleMB from '@assets/ui/story/en/career-title-mb.svg';
+import Career1 from '@assets/ui/story/en/career-1.png';
+import Career2 from '@assets/ui/story/en/career-2.png';
+import Career3 from '@assets/ui/story/en/career-3.png';
+import Career1MB from '@assets/ui/story/en/career-1-mb.png';
+import Career2MB from '@assets/ui/story/en/career-2-mb.jpg';
+import Career3MB from '@assets/ui/story/en/career-3-mb.jpg';
+import Career4MB from '@assets/ui/story/en/career-4-mb.jpg';
+import CareerBG from '@assets/ui/story/career-bg.jpg';
+import CareerCert from '@assets/ui/story/en/cert.svg';
+
+---
+<section class="career">
+    <div class="container">
+        <div class="career-wrap">
+            <Image src={CareerTitle} alt="career title" class="img is-desk" />
+            <Image src={Career1} alt="career statistic" class="img is-desk career__cert" />
+            <Image src={Career2} alt="career statistic" class="img is-desk" />
+            <Image src={CareerCert} alt="career cert" class="img is-desk" />
+            <Image src={Career3} alt="career statistic" class="img is-desk" />
+            <Image src={CareerBG} alt="career statistic" class="img is-desk career__bg" />
+
+            <Image src={CareerTitleMB} alt="career title" class="img is-mb" />
+            <Image src={Career1MB} alt="career statistic" class="img is-mb" />
+            <Image src={Career2MB} alt="career statistic" class="img is-mb" />
+            <Image src={Career3MB} alt="career statistic" class="img is-mb" />
+            <Image src={Career4MB} alt="career statistic" class="img is-mb negative" />
+        </div>
+    </div>
+</section>
+<style lang="scss">
+    @use '@styles/colors' as *;
+    @use '@styles/mixins' as *;
+    .career {
+        background-color: $cl-white;
+        position: relative;
+        &__cert {
+            margin-top: -6rem;
+        }
+        &-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem 0;
+            padding-block: 8.8rem;
+            @include sm {
+                padding-top: 4rem;
+                padding-bottom: 0;
+                gap: 2.4rem 0;
+            }
+        }
+        &__bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+        }
+    }
+</style>

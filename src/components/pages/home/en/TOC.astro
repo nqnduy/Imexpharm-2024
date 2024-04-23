@@ -1,0 +1,99 @@
+---
+import { Image } from 'astro:assets';
+import TOC1 from '@assets/ui/home/en/TOC-1.svg';
+import TOC2 from '@assets/ui/home/en/TOC-2.svg';
+import TOC3 from '@assets/ui/home/en/TOC-3.svg';
+import TOC4 from '@assets/ui/home/en/TOC-4.svg';
+import TOC5 from '@assets/ui/home/en/TOC-5.svg';
+import TOC6 from '@assets/ui/home/en/TOC-6.svg';
+import TOC1MB from '@assets/ui/home/en/TOC-1-mb.svg';
+import TOC2MB from '@assets/ui/home/en/TOC-2-mb.svg';
+import TOC3MB from '@assets/ui/home/en/TOC-3-mb.svg';
+import TOC4MB from '@assets/ui/home/en/TOC-4-mb.svg';
+import TOC5MB from '@assets/ui/home/en/TOC-5-mb.svg';
+import TOC6MB from '@assets/ui/home/en/TOC-6-mb.svg';
+import TOCBackground from '@assets/ui/home/toc-bg.jpg'
+import TOCBackgroundMB from '@assets/ui/home/toc-bg-mb.jpg'
+import Link from '@components/global/Link.astro';
+import { menu } from '@/i18n/default';
+import { getLangFromUrl } from '@/i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+---
+<section class="TOC">
+    <div class="container">
+        <div class="TOC-bg negative">
+            <Image src={TOCBackground} alt="" class="img is-desk" />
+            <Image src={TOCBackgroundMB} alt="" class="img is-mb" />
+        </div>
+        <div class="TOC-wrap">
+            <div class="TOC__item">
+                <Image src={TOC1} alt="" class="img is-desk" />
+                <Image src={TOC1MB} alt="" class="img is-mb" />
+                <Link link={menu[lang][1].link} text="Read more"/>
+            </div>
+            <div class="TOC__item">
+                <Image src={TOC2} alt="" class="img is-desk" />
+                <Image src={TOC2MB} alt="" class="img is-mb" />
+                <Link link={menu[lang][2].link} text="Read more"/>
+            </div>
+            <div class="TOC__item">
+                <Image src={TOC3} alt="" class="img is-desk" />
+                <Image src={TOC3MB} alt="" class="img is-mb" />
+                <Link link={menu[lang][3].link} text="Read more"/>
+            </div>
+            <div class="TOC__item">
+                <Image src={TOC4} alt="" class="img is-desk" />
+                <Image src={TOC4MB} alt="" class="img is-mb" />
+                <Link link={menu[lang][4].link} text="Read more"/>
+            </div>
+            <div class="TOC__item">
+                <Image src={TOC5} alt="" class="img is-desk" />
+                <Image src={TOC5MB} alt="" class="img is-mb" />
+                <Link link={menu[lang][5].link} text="Read more"/>
+            </div>
+            <div class="TOC__item">
+                <Image src={TOC6} alt="" class="img is-desk" />
+                <Image src={TOC6MB} alt="" class="img is-mb" />
+                <Link link={menu[lang][6].link} text="Read more"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style lang="scss">
+    @use "@styles/colors" as *;
+    @use "@styles/mixins" as *;
+    .TOC {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            > * {
+                grid-area: 1/1/2/2;
+            }
+        }
+
+        &-wrap {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem 2.25rem;
+            padding: 8.8rem 0;
+            @include sm {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 4rem 0;
+                gap: 2.4rem;
+            }
+        }
+        &__item {
+            color: $cl-cyan;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 2.4rem 0;
+            justify-content: space-between;
+            @include sm {
+                gap: 1.6rem 0;
+            }
+        }
+    }
+</style>

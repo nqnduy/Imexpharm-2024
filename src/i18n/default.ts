@@ -29,13 +29,13 @@ export const menu = {
         { name: 'Liên hệ', link: './lien-he' }
     ],
     en: [
-        { name: 'Home', link: './' },
-        { name: 'Vision', link: './tam-nhin', chapter: '#' },
-        { name: 'Story', link: './cau-chuyen', chapter: '#' },
-        { name: 'Result', link: './ket-qua', chapter: '#' },
-        { name: 'Manage', link: './quan-tri', chapter: '#' },
-        { name: 'Renew', link: './doi-moi', chapter: '#' },
-        { name: 'Report', link: './bao-cao' },
-        { name: 'Contact', link: './lien-he' },
+        { name: 'Home', link: '/' },
+        { name: 'Vision', link: '/tam-nhin', chapter: '#' },
+        { name: 'Story', link: '/cau-chuyen', chapter: '#' },
+        { name: 'Achievements', link: '/ket-qua', chapter: '#' },
+        { name: 'Governance', link: '/quan-tri', chapter: '#' },
+        { name: 'Innovation', link: '/doi-moi', chapter: '#' },
+        { name: 'Financials', link: '/bao-cao' },
+        { name: 'Contact', link: '/lien-he' },
     ]
 } as const
