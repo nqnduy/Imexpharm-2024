@@ -1,7 +1,8 @@
 ---
 import cn from 'clsx';
-import { useTranslatedPath, getLangFromUrl } from '@i18n/utils';
+import { getLangFromUrl } from '@i18n/utils';
 import { menu } from '@/i18n/default';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { Image } from 'astro:assets';
 import Logo from "@assets/icons/logo.svg";
 import VNFlag from "@assets/icons/vn-flag.svg";
@@ -11,12 +12,11 @@ import DownloadBtn from '@assets/icons/download.svg';
 import DownloadBtnEn from '@assets/icons/en/download.svg';
 
 const lang = getLangFromUrl(Astro.url);
-const translatePath = useTranslatedPath(lang);
 const pathname = new URL(Astro.request.url).pathname;
 ---
 <header class="header">
     <div class="container is-desk">
-        <a href={translatePath('/')} class="header__logo">
+        <a href={getRelativeLocaleUrl(lang, './')} class="header__logo">
             <Image src={Logo} alt="Imexpharm logo" class="img-h" />
         </a>
         <div class="header__right">
@@ -24,8 +24,8 @@ const pathname = new URL(Astro.request.url).pathname;
                 {menu[lang].map((item) => (
                     <li>
                         <a
-                            class={cn("heading txt-link header__menu-link", { "active": pathname === translatePath(item.link) })}
-                            href={translatePath(item.link)}>
+                            class={cn("heading txt-link header__menu-link", { "active": pathname === getRelativeLocaleUrl(lang, item.link).replace('/./', '/') })}
+                            href={getRelativeLocaleUrl(lang, item.link)}>
                             <span class="txt txt-14 txt-reg header__menu-link-txt">{item.name}</span>
                             <span class="txt txt-14 txt-semi header__menu-link-txt">{item.name}</span>
                         </a>
@@ -41,10 +41,14 @@ const pathname = new URL(Astro.request.url).pathname;
                 )}
             </a>
             <div class="header__langs">
-                <a href={'/'} class={cn("header__lang", { "current": lang === 'vi' })}>
+                <a
+                    href={`${getRelativeLocaleUrl('vi', Astro.url.pathname.replace('/en/','/') )}`}
+                    class={cn("header__lang", { "current": lang === 'vi' })}>
                     <Image src={VNFlag} alt='vietnam flag' class="img header__lang-flag"/>
                 </a>
-                <a href={'/en'} class={cn("header__lang", { "current": lang === 'en' })}>
+                <a
+                    href={`${getRelativeLocaleUrl('en', Astro.url.pathname.replace('/vi/','/') )}`}
+                    class={cn("header__lang", { "current": lang === 'en' })}>
                     <Image src={USFlag} alt='us flag' class="img header__lang-flag"/>
                 </a>
                 <div class="ic ic-24 header__langs-arrow">
@@ -65,7 +69,7 @@ const pathname = new URL(Astro.request.url).pathname;
                 <Fragment set:html={Dropdown} />
             </div>
         </div>
-        <a href={translatePath('/')} class="header__logo">
+        <a href={getRelativeLocaleUrl(lang, './')} class="header__logo">
             <Image src={Logo} alt="Imexpharm logo" class="img-h" />
         </a>
         <div>
@@ -86,8 +90,8 @@ const pathname = new URL(Astro.request.url).pathname;
             {menu[lang].map((item) => (
                 <li>
                     <a
-                        class={cn("heading txt-link header__menu-link", { "active": pathname === translatePath(item.link) })}
-                        href={translatePath(item.link)}>
+                        class={cn("heading txt-link header__menu-link", { "active": pathname === getRelativeLocaleUrl(lang, item.link).replace('/./', '/') })}
+                        href={getRelativeLocaleUrl(lang, item.link)}>
                         <span class="txt txt-14 txt-reg header__menu-link-txt">{item.name}</span>
                         <span class="txt txt-14 txt-semi header__menu-link-txt">{item.name}</span>
                     </a>
