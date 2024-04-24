@@ -13,7 +13,10 @@ const lang = getLangFromUrl(Astro.url);
         <div class="footer__download">
             <div class="container">
                 <a href={menu[lang][current_page].chapter}>
-                    <a href="#" class="header__download">
+                    <a
+                        href="https://www.imexpharm.com/Data/Sites/1/media/pdf/nha-dau-tu/bao-cao-thuong-nien/2024-bao-cao-thuong-nien/vie_1904_imexpharm-ar-2023.pdf?fbclid=IwZXh0bgNhZW0CMTAAAR3BxtyNc-mT7a3onVxF5-vjhYNVKKudxTquuvafkpvFSYYraDLatTBBLxk_aem_AXz5CwNd_WOvJZJlY3iVC_Q4pBD08fcZy4lXZTPp0UcR-ZggUmPf055Ju4X3CkNJqG3Pumkk3WOzkosfFp6RiHpL"
+                        target="_blank"
+                        class="header__download">
                         {lang === 'vi' ? (
                             <Image src={DownloadBtn} alt="download link" class="img img-h" />
                         ) :
