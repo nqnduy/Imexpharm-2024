@@ -6,32 +6,31 @@ import { menu } from '@/i18n/default';
 import { getLangFromUrl } from '@/i18n/utils';
 import DownloadBtn from '@assets/icons/download-chap.svg';
 import DownloadBtnEn from '@assets/icons/en/download-chap.svg';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 const lang = getLangFromUrl(Astro.url);
 ---
 <footer class="footer">
     {menu[lang][current_page].chapter && (
         <div class="footer__download">
             <div class="container">
-                <a href={menu[lang][current_page].chapter}>
-                    <a
-                        href="https://www.imexpharm.com/Data/Sites/1/media/pdf/nha-dau-tu/bao-cao-thuong-nien/2024-bao-cao-thuong-nien/vie_1904_imexpharm-ar-2023.pdf?fbclid=IwZXh0bgNhZW0CMTAAAR3BxtyNc-mT7a3onVxF5-vjhYNVKKudxTquuvafkpvFSYYraDLatTBBLxk_aem_AXz5CwNd_WOvJZJlY3iVC_Q4pBD08fcZy4lXZTPp0UcR-ZggUmPf055Ju4X3CkNJqG3Pumkk3WOzkosfFp6RiHpL"
-                        target="_blank"
-                        class="header__download">
-                        {lang === 'vi' ? (
-                            <Image src={DownloadBtn} alt="download link" class="img img-h" />
-                        ) :
-                        (
-                            <Image src={DownloadBtnEn} alt="download link" class="img img-h" />
-                        )}
-                    </a>
+                <a
+                    href="https://www.imexpharm.com/Data/Sites/1/media/pdf/nha-dau-tu/bao-cao-thuong-nien/2024-bao-cao-thuong-nien/vie_1904_imexpharm-ar-2023.pdf?fbclid=IwZXh0bgNhZW0CMTAAAR3BxtyNc-mT7a3onVxF5-vjhYNVKKudxTquuvafkpvFSYYraDLatTBBLxk_aem_AXz5CwNd_WOvJZJlY3iVC_Q4pBD08fcZy4lXZTPp0UcR-ZggUmPf055Ju4X3CkNJqG3Pumkk3WOzkosfFp6RiHpL"
+                    target="_blank"
+                    class="header__download">
+                    {lang === 'vi' ? (
+                        <Image src={DownloadBtn} alt="download link" class="img img-h" />
+                    ) :
+                    (
+                        <Image src={DownloadBtnEn} alt="download link" class="img img-h" />
+                    )}
                 </a>
             </div>
         </div>
     )}
     <div class="footer__pagination">
         <div class="container">
-            {current_page - 1 >= 0 ? (<Link link={menu[lang][current_page - 1].link} text={menu[lang][current_page - 1].name} revert/>) : (<div class="footer__pagination-hidden"></div>)}
-            {current_page + 1 < menu[lang].length ? (<Link link={menu[lang][current_page + 1].link} text={menu[lang][current_page + 1].name}/>) : (<div class="footer__pagination-hidden"></div>)}
+            {current_page - 1 >= 0 ? (<Link link={getRelativeLocaleUrl(lang, menu[lang][current_page - 1].link)} text={menu[lang][current_page - 1].name} revert/>) : (<div class="footer__pagination-hidden"></div>)}
+            {current_page + 1 < menu[lang].length ? (<Link link={getRelativeLocaleUrl(lang, menu[lang][current_page + 1].link)} text={menu[lang][current_page + 1].name}/>) : (<div class="footer__pagination-hidden"></div>)}
         </div>
     </div>
     <div class="txt txt-14 footer__copyright">© 2024 All Rights Reserved | IMEXPHARM</div>
