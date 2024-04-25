@@ -81,7 +81,7 @@ img {
 .container {
     --container-width: 1920px;
     --grid-column: 12;
-    --container-padding: 31rem;
+    --container-padding: 12rem;
     position: relative;
     z-index: 2;
     width: 100%;
@@ -99,8 +99,8 @@ img {
             margin-inline: calc(var(--container-padding) * -1);
             width: calc(100% + var(--container-padding) * 2);
             @include md {
-                margin-inline: -31rem;
-                width: calc(100% +  62rem);
+                margin-inline: -12rem;
+                width: calc(100% +  24rem);
             }
             @include sm {
                 margin-inline: calc(var(--container-padding) * -1);
