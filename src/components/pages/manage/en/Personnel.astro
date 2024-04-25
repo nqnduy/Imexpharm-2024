@@ -28,7 +28,7 @@ import People152 from '@assets/ui/manage/en/people-15.2.png';
 ---
 <section class="personnel">
     <div class="container">
-        <div class="personnel_bg negative">
+        <div class="personnel__bg negative">
             <Image src={PersonnelBG1} alt="text" class="img is-desk" />
         </div>
         <div class="personnel__list">
@@ -45,7 +45,7 @@ import People152 from '@assets/ui/manage/en/people-15.2.png';
         </div>
     </div>
     <div class="container">
-        <div class="personnel_bg negative">
+        <div class="personnel__bg negative">
             <Image src={PersonnelBG2} alt="text" class="img is-desk" />
         </div>
         <div class="personnel__list">
@@ -83,6 +83,10 @@ import People152 from '@assets/ui/manage/en/people-15.2.png';
             > *:last-child {
                 margin-top: -.1rem;
             }
+        }
+        &__bg {
+            margin-inline: -35rem;
+            width: calc(100% + 70rem);
         }
         &__list {
             display: grid;

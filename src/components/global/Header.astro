@@ -33,7 +33,7 @@ const pathname = new URL(Astro.request.url).pathname;
                 ))}
             </ul>
             <a
-                href="https://www.imexpharm.com/Data/Sites/1/media/pdf/nha-dau-tu/bao-cao-thuong-nien/2024-bao-cao-thuong-nien/vie_1904_imexpharm-ar-2023.pdf?fbclid=IwZXh0bgNhZW0CMTAAAR3BxtyNc-mT7a3onVxF5-vjhYNVKKudxTquuvafkpvFSYYraDLatTBBLxk_aem_AXz5CwNd_WOvJZJlY3iVC_Q4pBD08fcZy4lXZTPp0UcR-ZggUmPf055Ju4X3CkNJqG3Pumkk3WOzkosfFp6RiHpL"
+                href={lang === 'vi' ? "https://drive.google.com/file/d/1Yy6NomRlABdr85G55DSM28shwgkBbqeL/view" : "https://drive.google.com/file/d/18XBKLGT-RW79IlA9RADht094NpmXJrhV/view"}
                 target="_blank"
                 class="header__download">
                 {lang === 'vi' ? (
@@ -62,10 +62,14 @@ const pathname = new URL(Astro.request.url).pathname;
     </div>
     <div class="container is-mb">
         <div class="header__langs">
-            <a href={'/'} class={cn("header__lang", { "current": lang === 'vi' })}>
+            <a
+                href={`${getRelativeLocaleUrl('vi', Astro.url.pathname.replace('/en/','/') )}`}
+                class={cn("header__lang", { "current": lang === 'vi' })}>
                 <Image src={VNFlag} alt='vietnam flag' class="img header__lang-flag"/>
             </a>
-            <a href={'/en'} class={cn("header__lang", { "current": lang === 'en' })}>
+            <a
+                href={`${getRelativeLocaleUrl('en', Astro.url.pathname.replace('/vi/','/') )}`}
+                class={cn("header__lang", { "current": lang === 'en' })}>
                 <Image src={USFlag} alt='us flag' class="img header__lang-flag"/>
             </a>
             <div class="ic ic-24 header__langs-arrow">
@@ -101,7 +105,7 @@ const pathname = new URL(Astro.request.url).pathname;
                 </li>
             ))}
             <a
-                href="https://www.imexpharm.com/Data/Sites/1/media/pdf/nha-dau-tu/bao-cao-thuong-nien/2024-bao-cao-thuong-nien/vie_1904_imexpharm-ar-2023.pdf?fbclid=IwZXh0bgNhZW0CMTAAAR3BxtyNc-mT7a3onVxF5-vjhYNVKKudxTquuvafkpvFSYYraDLatTBBLxk_aem_AXz5CwNd_WOvJZJlY3iVC_Q4pBD08fcZy4lXZTPp0UcR-ZggUmPf055Ju4X3CkNJqG3Pumkk3WOzkosfFp6RiHpL"
+                href={lang === 'vi' ? "https://drive.google.com/file/d/1Yy6NomRlABdr85G55DSM28shwgkBbqeL/view" : "https://drive.google.com/file/d/18XBKLGT-RW79IlA9RADht094NpmXJrhV/view"}
                 target="_blank"
                 class="header__download">
                 {lang === 'vi' ? (
@@ -284,6 +288,8 @@ const pathname = new URL(Astro.request.url).pathname;
             transition: all 0.4s ease-in-out;
             z-index: 1;
             pointer-events: none;
+            padding: .5rem;
+            margin: -.3rem -.5rem;
             &.current {
                 position: relative;
                 opacity: 1;

@@ -41,7 +41,13 @@ import Intro4MB from '@assets/ui/manage/en/intro-4-mb.svg'
             }
         }
         &-bg {
+            margin-inline: -34rem;
+            width: calc(100% + 68rem);
             align-self: end;
+            @include sm {
+                margin-inline: calc(var(--container-padding) * -1);
+                width: calc(100% + var(--container-padding) * 2);
+            }
         }
         &-wrap {
             padding-top: 8.8rem;
