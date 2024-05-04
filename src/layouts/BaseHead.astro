@@ -29,6 +29,8 @@ const Favicon = await getImage({src: favicon, format: 'webp', width: favicon.wid
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(OpenGraph.src, Astro.url)} />
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script>
         window.scrollTo(0,0)
     </script>

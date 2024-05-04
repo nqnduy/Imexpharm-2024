@@ -3,6 +3,7 @@ const { link, text, revert } = Astro.props;
 ---
 <a href={link} class="main-link"
     style={{ flexDirection: `${revert ? 'row-reverse' : 'reverse'}`, color: `${revert ? '#fff' : '#24CBFF'}`  }}
+    {...Astro.props}
 >
     <span class="heading txt txt-14 txt-link">{text}</span>
     <svg

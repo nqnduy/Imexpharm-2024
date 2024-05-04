@@ -16,13 +16,16 @@ const pathname = new URL(Astro.request.url).pathname;
 ---
 <header class="header">
     <div class="container is-desk">
-        <a href={getRelativeLocaleUrl(lang, './')} class="header__logo">
+        <a href={getRelativeLocaleUrl(lang, './')} class="header__logo" data-aos="zoom-in" data-aos-delay="600">
             <Image src={Logo} alt="Imexpharm logo" class="img-h" />
         </a>
         <div class="header__right">
             <ul class="header__menu">
-                {menu[lang].map((item) => (
-                    <li>
+                {menu[lang].map((item, idx) => (
+                    <li
+                        data-aos="fade-down"
+                        data-aos-delay={idx*100}
+                    >
                         <a
                             class={cn("heading txt-link header__menu-link", { "active": pathname === getRelativeLocaleUrl(lang, item.link).replace('/./', '/') })}
                             href={getRelativeLocaleUrl(lang, item.link)}>
@@ -37,7 +40,10 @@ const pathname = new URL(Astro.request.url).pathname;
                 "https://www.imexpharm.com/Data/Sites/1/media/pdf/nha-dau-tu/bao-cao-thuong-nien/2024-bao-cao-thuong-nien/vie_1904_imexpharm-ar-2023.pdf" :
                 "https://www.imexpharm.com/Data/Sites/1/media/pdf/nha-dau-tu/bao-cao-thuong-nien/2024-bao-cao-thuong-nien/eng_1904_imexpharm-ar-2023.pdf"}
                 target="_blank"
-                class="header__download">
+                class="header__download"
+                data-aos="fade-down"
+                data-aos-delay="600"
+                >
                 {lang === 'vi' ? (
                     <Image src={DownloadBtn} alt="download link" class="img img-h" />
                 ) :
@@ -45,7 +51,10 @@ const pathname = new URL(Astro.request.url).pathname;
                     <Image src={DownloadBtnEn} alt="download link" class="img img-h" />
                 )}
             </a>
-            <div class="header__langs">
+            <div class="header__langs"
+            data-aos="fade-down"
+            data-aos-delay="670"
+            >
                 <a
                     href={`${getRelativeLocaleUrl('vi', Astro.url.pathname.replace('/en/','/') )}`}
                     class={cn("header__lang", { "current": lang === 'vi' })}>
@@ -63,7 +72,7 @@ const pathname = new URL(Astro.request.url).pathname;
         </div>
     </div>
     <div class="container is-mb">
-        <div class="header__langs">
+        <div class="header__langs" data-aos="fade-down">
             <a
                 href={`${getRelativeLocaleUrl('vi', Astro.url.pathname.replace('/en/','/') )}`}
                 class={cn("header__lang", { "current": lang === 'vi' })}>
@@ -78,12 +87,12 @@ const pathname = new URL(Astro.request.url).pathname;
                 <Fragment set:html={Dropdown} />
             </div>
         </div>
-        <a href={getRelativeLocaleUrl(lang, './')} class="header__logo">
-            <Image src={Logo} alt="Imexpharm logo" class="img-h" />
+        <a href={getRelativeLocaleUrl(lang, './')} class="header__logo" >
+            <Image src={Logo} alt="Imexpharm logo" class="img-h" data-aos="zoom-in" data-aos-delay="350"/>
         </a>
         <div>
         </div>
-        <button class="header__ham grid grid-1">
+        <button class="header__ham grid grid-1" data-aos="fade-down">
             <div class="header__ham-open">
                 <svg width="100%" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3 18.5H21V16.5H3V18.5ZM3 13.5H21V11.5H3V13.5ZM3 6.5V8.5H21V6.5H3Z" fill="white"/>

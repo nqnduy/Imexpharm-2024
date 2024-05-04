@@ -16,7 +16,10 @@ const lang = getLangFromUrl(Astro.url);
                 <a
                     href={menu[lang][current_page].chapter}
                     target="_blank"
-                    class="header__download">
+                    class="header__download"
+                    data-aos="zoom-in"
+                    data-aos-delay="1200"
+                    >
                     {lang === 'vi' ? (
                         <Image src={DownloadBtn} alt="download link" class="img img-h" />
                     ) :
@@ -29,8 +32,21 @@ const lang = getLangFromUrl(Astro.url);
     )}
     <div class="footer__pagination">
         <div class="container">
-            {current_page - 1 >= 0 ? (<Link link={getRelativeLocaleUrl(lang, menu[lang][current_page - 1].link)} text={menu[lang][current_page - 1].name} revert/>) : (<div class="footer__pagination-hidden"></div>)}
-            {current_page + 1 < menu[lang].length ? (<Link link={getRelativeLocaleUrl(lang, menu[lang][current_page + 1].link)} text={menu[lang][current_page + 1].name}/>) : (<div class="footer__pagination-hidden"></div>)}
+            {current_page - 1 >= 0 ? (
+                <Link
+                    link={getRelativeLocaleUrl(lang, menu[lang][current_page - 1].link)}
+                    text={menu[lang][current_page - 1].name}
+                    data-aos="fade-left"
+                    data-duration="1000"
+                    revert
+                />) : (<div class="footer__pagination-hidden"></div>)}
+            {current_page + 1 < menu[lang].length ? (
+                <Link
+                    link={getRelativeLocaleUrl(lang, menu[lang][current_page + 1].link)}
+                    text={menu[lang][current_page + 1].name}
+                    data-aos="fade-right"
+                    data-duration="1000"
+                />) : (<div class="footer__pagination-hidden"></div>)}
         </div>
     </div>
     <div class="txt txt-14 footer__copyright">© 2024 All Rights Reserved | IMEXPHARM</div>
