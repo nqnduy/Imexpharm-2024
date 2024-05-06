@@ -5,6 +5,7 @@ import { menu } from '@/i18n/default';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { Image } from 'astro:assets';
 import Logo from "@assets/icons/logo.svg";
+import LogoEN from "@assets/icons/en/logo.svg";
 import VNFlag from "@assets/icons/vn-flag.svg";
 import USFlag from "@assets/icons/en/us-flag.svg";
 import Dropdown from "@assets/icons/dropdown.svg?raw";
@@ -17,7 +18,12 @@ const pathname = new URL(Astro.request.url).pathname;
 <header class="header">
     <div class="container is-desk">
         <a href={getRelativeLocaleUrl(lang, './')} class="header__logo" data-aos="zoom-in" data-aos-delay="600">
-            <Image src={Logo} alt="Imexpharm logo" class="img-h" />
+            {lang === 'vi' ? (
+                <Image src={Logo} alt="Imexpharm logo" class="img-h" />
+            ) :
+            (
+                <Image src={LogoEN} alt="Imexpharm logo" class="img-h" />
+            )}
         </a>
         <div class="header__right">
             <ul class="header__menu">
@@ -87,8 +93,13 @@ const pathname = new URL(Astro.request.url).pathname;
                 <Fragment set:html={Dropdown} />
             </div>
         </div>
-        <a href={getRelativeLocaleUrl(lang, './')} class="header__logo" >
-            <Image src={Logo} alt="Imexpharm logo" class="img-h" data-aos="zoom-in" data-aos-delay="350"/>
+        <a href={getRelativeLocaleUrl(lang, './')} class="header__logo">
+            {lang === 'vi' ? (
+                <Image src={Logo} alt="Imexpharm logo" class="img-h" data-aos="zoom-in" data-aos-delay="350"/>
+            ) :
+            (
+                <Image src={LogoEN} alt="Imexpharm logo" class="img-h" data-aos="zoom-in" data-aos-delay="350"/>
+            )}
         </a>
         <div>
         </div>
